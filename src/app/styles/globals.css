@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* DegularDemo */
+/* Regular */
+@font-face {
+    font-family: 'DegularDemo';
+    src: url('/fonts/DegularDemo/fonnts.com-DegularDemo-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Italic */
+@font-face {
+    font-family: 'DegularDemo';
+    src: url('/fonts/DegularDemo/fonnts.com-DegularDemo-Italic.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+}
+
+/* Bold */
+@font-face {
+    font-family: 'DegularDemo';
+    src: url('/fonts/DegularDemo/fonnts.com-DegularDemo-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* Bold Italic */
+@font-face {
+    font-family: 'DegularDemo';
+    src: url('/fonts/DegularDemo/fonnts.com-DegularDemo-BoldItalic.otf') format('opentype');
+    font-weight: 700;
+    font-style: italic;
+}
+
+/* Light */
+@font-face {
+    font-family: 'DegularDemo';
+    src: url('/fonts/DegularDemo/fonnts.com-DegularDemo-Light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+/* Light Italic */
+@font-face {
+    font-family: 'DegularDemo';
+    src: url('/fonts/DegularDemo/fonnts.com-DegularDemo-LightItalic.otf') format('opentype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+/* Medium */
+@font-face {
+    font-family: 'DegularDemo';
+    src: url('/fonts/DegularDemo/fonnts.com-DegularDemo-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+/* Medium Italic */
+@font-face {
+    font-family: 'DegularDemo';
+    src: url('/fonts/DegularDemo/fonnts.com-DegularDemo-MediumItalic.otf') format('opentype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+/* Semibold */
+@font-face {
+    font-family: 'DegularDemo';
+    src: url('/fonts/DegularDemo/fonnts.com-DegularDemo-Semibold.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+/* Semibold Italic */
+@font-face {
+    font-family: 'DegularDemo';
+    src: url('/fonts/DegularDemo/fonnts.com-DegularDemo-SemiboldItalic.otf') format('opentype');
+    font-weight: 600;
+    font-style: italic;
+}
+
+/* Thin */
+@font-face {
+    font-family: 'DegularDemo';
+    src: url('/fonts/DegularDemo/fonnts.com-DegularDemo-Thin.otf') format('opentype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+/* Thin Italic */
+@font-face {
+    font-family: 'DegularDemo';
+    src: url('/fonts/DegularDemo/fonnts.com-DegularDemo-ThinItalic.otf') format('opentype');
+    font-weight: 100;
+    font-style: italic;
+}
+
+/* Black */
+@font-face {
+    font-family: 'DegularDemo';
+    src: url('/fonts/DegularDemo/fonnts.com-DegularDemo-Black.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+/* Black Italic */
+@font-face {
+    font-family: 'DegularDemo';
+    src: url('/fonts/DegularDemo/fonnts.com-DegularDemo-BlackItalic.otf') format('opentype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+
+
+body {
+    font-family: 'DegularDemo', sans-serif;
+    font-weight: 300; /* Regular */
+  }
+  
+  h1 {
+    font-family: 'DegularDemo', sans-serif;
+    font-weight: 700; /* Bold */
+    
+  }
+  
+  em {
+    font-family: 'DegularDemo', sans-serif;
+    font-style: italic; /* Italic */
+  }
+  
+
+
+  /* PRESS START */
+  /* Style for the entire text and spans */
+.jumping-text {
+    display: inline-block;
+    position: relative; /* Allows positioning of the arrow */
+  }
+  
+  .jumping-text span {
+    display: inline-block;
+    transition: color 0.3s ease;
+  }
+  
+  /* Style for the ">" arrow */
+  .jumping-text .arrow {
+    position: relative;
+    margin-right: 8px; 
+    transition: transform 0.5s ease, color 0.5s ease; /* Smooth transition for both position and color */
+    color: #F0B541; /* Initial color */
+  }
+  
+  /* Hover effect for the ">" arrow */
+  .jumping-text:hover .arrow {
+    transform: translateX(5px); /* Move right on hover */
+    color: #F0B541; /* Change color on hover */
+  }
+  
+  /* Jump animation for the text letters */
+  @keyframes jump {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px); /* Adjust jump height */
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  /* Hover effect for the text letters - animation starts only on hover */
+  .jumping-text:hover span:not(.arrow) {
+    color: #F0B541;
+    animation: jump 0.5s ease infinite;
+    animation-fill-mode: forwards;
+  }
+  
+  /* Individual delays for each letter for sequential jumping */
+  .jumping-text:hover span:nth-child(3) { animation-delay: 0.1s; }
+  .jumping-text:hover span:nth-child(4) { animation-delay: 0.2s; }
+  .jumping-text:hover span:nth-child(5) { animation-delay: 0.3s; }
+  .jumping-text:hover span:nth-child(6) { animation-delay: 0.4s; }
+  .jumping-text:hover span:nth-child(7) { animation-delay: 0.5s; }
+  .jumping-text:hover span:nth-child(9) { animation-delay: 0.6s; }
+  .jumping-text:hover span:nth-child(10) { animation-delay: 0.7s; }
+  .jumping-text:hover span:nth-child(11) { animation-delay: 0.8s; }
+  .jumping-text:hover span:nth-child(12) { animation-delay: 0.9s; }
+  .jumping-text:hover span:nth-child(13) { animation-delay: 1.0s; }
