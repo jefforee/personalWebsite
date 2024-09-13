@@ -2,12 +2,15 @@
 
 import { useRouter } from 'next/navigation'
 import { useState } from 'react';
-import { TbFileCv, TbBrandLinkedin, TbBrandInstagram } from 'react-icons/tb';
+import { TbFileCv, TbBrandLinkedin, TbBrandGithub } from 'react-icons/tb';
+import Typewriter from 'typewriter-effect';
 
 
 export default function Navbar() {
     const router = useRouter()
     const [isOpen, setIsOpen] = useState(false);
+    const [isHovered, setIsHovered] = useState(false);
+
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -18,11 +21,47 @@ export default function Navbar() {
             <div className="pt-2 md:pt-4 flex flex-row justify-between items-start md:items-center px-[10%] lg:px-60">
                 {/* Leftside */}
                 <div className="font-pixelify font-light text-lg flex flex-row justify-start md:justify-center items-center gap-4">
-                    <button type="button" onClick={() => router.push('/')} className="font-medium text-xl mr-8 pt-2 md:pt-0">Jeffrey Huang</button>
+                    {/* <button type="button" onClick={() => router.push('/')} className="font-medium text-xl mr-8 pt-2 md:pt-0">Jeffrey Huang</button> */}
+                    <a href="/" className="flip-animate mr-8" >
+                        Jeffrey&nbsp;<span class="flip-text" data-hover="Huang">Huang</span>
+                    </a>
+
+                    {/* <a href="/" className="mr-8" >
+                        Jeffrey&nbsp;<span class="hover-text" data-hover="Huang">Huang</span>
+                    </a> */}
+
+{/* <div
+      style={{ display: 'inline-block' }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+     
+        <Typewriter
+          onInit={(typewriter) => {
+            typewriter
+              .typeString('Jeffrey Huang')
+              .pauseFor(2000)
+              .deleteAll()
+              .typeString('Billy')
+              .pauseFor(2000)
+              .start()
+          }}
+          options={{
+            delay: 50, // Adjust typing speed
+            loop: true,
+    
+          
+        />
+      )}
+    </div> */}
+
+                    
+
+
                     <div className='hidden md:flex flex-row gap-4 items-center justify-center'>
-                        <button type="button" onClick={() => router.push('/')}>Work</button>
-                        <button type="button" onClick={() => router.push('/about')}>About</button>
-                        <button type="button" onClick={() => router.push('/play')}>Play</button>
+                        <button className="bounce-button" type="button" onClick={() => router.push('/')}>Work</button>
+                        <button className="bounce-button" type="button" onClick={() => router.push('/about')}>About</button>
+                        <button className="bounce-button" type="button" onClick={() => router.push('/play')}>Play</button>
                     </div>
                 </div>
                 {/* Rightside */}
@@ -53,14 +92,14 @@ export default function Navbar() {
                     {/* Icons row for medium and larger screens */}
                     <div className="hidden md:flex md:flex-row md:gap-4 md:items-center">
                         <a>
-                            <TbFileCv className="w-6 h-6" />
+                            <TbFileCv className="w-6 h-6 bounce-button" />
                         </a>
                         <a href="https://www.linkedin.com/in/jeffreyhuang2002/">
 
-                            <TbBrandLinkedin className="w-6 h-6" />
+                            <TbBrandLinkedin className="w-6 h-6 bounce-button" />
                         </a>
-                        <a href="https://www.instagram.com/jeffs.jpeg/">
-                            <TbBrandInstagram className="w-6 h-6" />
+                        <a href="https://github.com/jefforee">
+                            <TbBrandGithub className="w-6 h-6 bounce-button" />
                         </a>
                     </div>
                 </div>

@@ -18,6 +18,8 @@ import amazonPixel from "../../public/images/amazonPixel.png"
 import ethicalPixel from "../../public/images/ethicalPixel.png"
 import kaiduPixel from "../../public/images/kaiduPixel.png"
 import ibmPixel from "../../public/images/ibmPixel.png"
+import coinPixel from "../../public/images/coinPixel.png"
+import banana from "../../public/images/banana.png"
 
 export default function Home() {
   const projectInfo = [
@@ -73,6 +75,7 @@ export default function Home() {
 
   const [isMobile, setIsMobile] = useState(false); // Default to smallBorder
 
+
   useEffect(() => {
     // Function to update image source based on screen width
     const updateImageSrc = () => {
@@ -108,8 +111,12 @@ export default function Home() {
             <span className="text-xl xl:text-[2vw] mr-2">
               Hello, I am
             </span>
-            <span className="text-9xl text-[9vw] font-semibold">
-              Jeffrey<span className="text-banana-yellow">.</span>
+            <span className="text-9xl text-[9vw] font-semibold flex flex-row items-end">
+              Jeffrey
+              <div class="flex mb-2 md:mb-3 lg:mb-4">
+                <span class="heartbeat"></span>
+                <span class="dot"></span>
+              </div>
             </span>
           </div>
 
@@ -124,26 +131,34 @@ export default function Home() {
 
         {/* Description */}
         <span className={`text-lg xl:text-[1.5vw] ${isMobile ? '-mt-12' : 'sm:mt-4'}`}>
-          A keyboard enthusiast, foodie, photographer, and gamer who is passionate about impactful software and finding <span className="text-banana-yellow font-semibold">banana</span>-flavored snacks.
+          A keyboard enthusiast, foodie, photographer, and gamer who is passionate about impactful software and finding&nbsp;
+          <span className="text-banana-yellow font-semibold banana-hover relative">banana
+            <Image src={banana} width={200} alt="Banana image" class="pop-up-image" />
+          </span>-flavored snacks.
         </span>
-        <span className="text-lg xl:text-[1.5vw] mt-4"
+
+
+
+        <span className="self-start text-lg xl:text-[1.5vw] mt-4 "
         >
-          Currently a software engineer at <span className="text-banana-yellow font-semibold">Amazon</span>.
+          Currently a software engineer at <span class="text-banana-yellow font-semibold animated-text">
+            <span>A</span><span>m</span><span>a</span><span>z</span><span>o</span><span>n</span>
+          </span>.
         </span>
-        <span class="text-xl xl:text-[1.5vw] font-pixelify mt-10 jumping-text">
+        <a href="#project" class="self-start text-xl xl:text-[1.5vw] font-pixelify mt-10 jumping-text ">
           <span class="arrow">&gt;</span><span></span>
           <span>P</span><span>R</span><span>E</span><span>S</span><span>S</span>
           <span>&nbsp;</span>
           <span>S</span><span>T</span><span>A</span><span>R</span><span>T</span>
-        </span>
+        </a>
 
 
       </div>
 
       {/* Projects */}
-      <div className="flex flex-col justify-center items-center">
+      <div id="project" className="flex flex-col justify-center items-center">
         {/* Project Sign */}
-        <div className={`relative ${isMobile ? "w-24" : "w-[15vw]"}`}>
+        <div className={`relative ${isMobile ? "w-24" : "w-[15vw]"} magic-cloud`}>
           <Image
             src={labelSign}
             alt="Label Sign"
@@ -155,6 +170,16 @@ export default function Home() {
               <span className="text-banana-yellow">&gt;</span>
             </span>
           </div>
+
+          {/* Bubbles */}
+          <div className="bubble red z-10"></div>
+          <div className="bubble red z-10"></div>
+          <div className="bubble red z-10"></div>
+          <div className="bubble blue z-10"></div>
+          <div className="bubble blue z-10"></div>
+          <div className="bubble pink z-10"></div>
+          <div className="bubble pink z-10"></div>
+          <div className="bubble pink z-10"></div>
         </div>
 
         {/* Project Grid */}
