@@ -122,6 +122,7 @@
 body {
     font-family: 'DegularDemo', sans-serif;
     font-weight: 300; /* Regular */
+    letter-spacing: 0.05em;
   }
   
   h1 {
@@ -411,7 +412,6 @@ a {
     }
     25% {
         font-weight: 500;
-        /* color:rgba(0, 0, 0, 0.5); */
     }
     50% {
         font-weight: 600;
@@ -441,6 +441,7 @@ a {
   }
   
   .bounce-button:hover {
+    cursor: pointer;
     animation: bounce 0.6s ease;
   }
   
@@ -464,6 +465,7 @@ a {
 
 
 
+
   a {
 
     text-decoration: none;
@@ -471,10 +473,6 @@ a {
     outline: none;
   }
   
-  a:hover,
-  a:focus {
-    color: #222;
-  }
   
   a.flip-animate {
     perspective: 1300px;

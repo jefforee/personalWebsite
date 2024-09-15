@@ -113,7 +113,7 @@ export default function Home() {
             </span>
             <span className="text-9xl text-[9vw] font-semibold flex flex-row items-end">
               Jeffrey
-              <div class="flex mb-2 md:mb-3 lg:mb-4">
+              <div class="flex mb-2 md:mb-3 lg:mb-4 cursor-pointer">
                 <span class="heartbeat"></span>
                 <span class="dot"></span>
               </div>
@@ -139,7 +139,7 @@ export default function Home() {
 
 
 
-        <span className="self-start text-lg xl:text-[1.5vw] mt-4 "
+        <span className="self-start text-lg xl:text-[1.5vw] mt-4 cursor-pointer"
         >
           Currently a software engineer at <span class="text-banana-yellow font-semibold animated-text">
             <span>A</span><span>m</span><span>a</span><span>z</span><span>o</span><span>n</span>
