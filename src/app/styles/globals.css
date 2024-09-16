@@ -847,3 +847,69 @@ a {
     opacity: 1;
   }
 }
+.image-container-lucky {
+  position: relative;
+  display: inline-block; /* Ensures the text box positions relative to this container */
+}
+
+.text-box-lucky {
+  position: absolute;
+  bottom: 120%; /* Positions the text box above the image */
+  left: 50%;
+  transform: translateX(-50%); /* Centers the text box horizontally */
+  background-color: #c6c6c6;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  box-sizing: border-box; /* Ensures padding and border are included in the width */
+  white-space: normal; /* Allows text to wrap */
+}
+
+.text-box-lucky::after {
+  content: '';
+  position: absolute;
+  bottom: -10px; /* Adjust as needed for spacing */
+  left: 50%; /* Position the tail on the bottom */
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #c6c6c6;
+}
+
+.image-container-lucky:hover .text-box-lucky {
+  opacity: 1;
+}
+
+
+
+
+
+.iframe-container {
+  position: relative;
+  width: 100vw; /* Full width */
+  height: 20vh; /* Adjust height as needed */
+}
+
+iframe {
+  width: 100%; /* Full width of container */
+  height: 100%; /* Full height of container */
+}
+
+.overlay {
+  position: absolute;
+  top: 105%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  text-align: center;
+  z-index: 10; /* Ensure overlay is above iframe */
+  pointer-events: none; /* Ensure overlay does not block interactions */
+}
+
+.overlay p {
+  margin: 0;
+}

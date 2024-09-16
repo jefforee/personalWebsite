@@ -20,13 +20,16 @@ import kaiduPixel from "../../public/images/kaiduPixel.png"
 import ibmPixel from "../../public/images/ibmPixel.png"
 import banana from "../../public/images/banana.png"
 import pikmin from "../../public/images/pikminPixel.png"
+import luckyBlock from "../../public/images/luckyBlockPixel.png"
+
 
 import topLeftSelect from "../../public/images/topLeftSelect.png"
 import topRightSelect from "../../public/images/topRightSelect.png"
 import bottomLeftSelect from "../../public/images/bottomLeftSelect.png"
 import bottomRightSelect from "../../public/images/bottomRightSelect.png"
-
+import { useHasStarted } from './contexts/HasStartedContext';
 import { motion } from 'framer-motion';
+
 
 export default function Home() {
   const projectInfo = [
@@ -85,10 +88,31 @@ export default function Home() {
   ];
 
   const [isMobile, setIsMobile] = useState(false); // Default to smallBorder
-  const [hasStarted, setHasStarted] = useState(false); // Track if the button is pressed
+  // const [hasStarted, setHasStarted] = useState(false); // Track if the button is pressed
   const [tiltDirection, setTiltDirection] = useState('');
   const [clickCount, setClickCount] = useState(0);
   const [shakeClass, setShakeClass] = useState('');
+  const { hasStarted, setHasStarted } = useHasStarted();
+
+  const [isFooterVisible, setIsFooterVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const footer = document.getElementById('footer');
+      if (footer) {
+        const footerRect = footer.getBoundingClientRect();
+        setIsFooterVisible(footerRect.top <= window.innerHeight);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial check
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+
+
 
   const handleShakingClick = () => {
     setClickCount(prevCount => prevCount + 1);
@@ -109,6 +133,9 @@ export default function Home() {
 
 
   useEffect(() => {
+    // Hide everything
+    setHasStarted(false);
+
     // Function to update image source based on screen width
     const updateImageSrc = () => {
       if (window.innerWidth > 768) {
@@ -136,7 +163,22 @@ export default function Home() {
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1 }}
+      className={`${isFooterVisible ? "relative" : ""} z-10`}
     >
+
+
+      {/* Lucky Block */}
+      <div className={`cursor-help bottom-5 ${isFooterVisible ? 'absolute right-0' : 'fixed right-[10%] lg:right-60'} image-container-lucky`}>
+        <Image
+          src={luckyBlock}
+          alt="Description"
+          className="w-10 h-10"
+        />
+        <div className="text-box-lucky font-pixelify text-xs md:text-base w-[100px] sm:w-[200px]">Interact with <span className='text-banana-yellow font-bold'>yellow</span> objects for a surprise!</div>
+      </div>
+
+
+
 
       {/*Intro  */}
       <div className="flex flex-col h-screen mt-[-54px] justify-center">
@@ -156,17 +198,52 @@ export default function Home() {
             </span>
           </div>
 
-          <div className="relative w-full min-w-[200px] min-h-[200px]">
-            <Image
-              src={dinosaur}
-              layout="fill"
-              objectFit="contain"
-            />
-          </div>
+          {/* Dinosaur game */}
+
+          {isMobile ? (
+            <div className="relative w-full min-w-[200px] min-h-[200px]">
+              <Image
+                src={dinosaur}
+                layout="fill"
+                objectFit="contain"
+              />
+            </div>
+          )
+            :
+            (
+
+              // <iframe
+              //   src="https://mhasbini.com/miscs/react-chrome-dino-demo/index.html"
+              //   style={{ width: '100vw', height: '20vh', border: 'none' }}
+              //   title="Embedded HTML"
+              //   scrolling='no'
+              //   className='cursor-crosshair'
+              // />
+              <div className="iframe-container">
+                <iframe
+                  src="https://mhasbini.com/miscs/react-chrome-dino-demo/index.html"
+                  style={{ width: '100%', height: '100%', border: 'none' }}
+                  title="Embedded HTML"
+                  scrolling='no'
+                  className='cursor-crosshair'
+                />
+                <div className="overlay">
+                  <p>Press Spacebar to Start</p>
+                </div>
+              </div>
+
+
+
+            )
+          }
+
+
+
+
         </div>
 
         {/* Description */}
-        <span className={`text-lg xl:text-[1.5vw] ${isMobile ? '-mt-12' : 'sm:mt-4'}`}>
+        <span className={`text-lg xl:text-[1.5vw] ${isMobile ? '-mt-12' : 'sm:mt-6'}`}>
           A keyboard enthusiast, foodie, photographer, and gamer who is passionate about impactful software and finding&nbsp;
           <span className="text-banana-yellow font-semibold banana-hover relative">banana
             <Image src={banana} alt="Banana image" class="pop-up-image" />
@@ -175,9 +252,9 @@ export default function Home() {
 
 
 
-        <span className="self-start text-lg xl:text-[1.5vw] mt-4 cursor-pointer"
+        <span className="self-start text-lg xl:text-[1.5vw] mt-4 "
         >
-          Currently a software engineer at <span class="text-banana-yellow font-semibold animated-text">
+          Currently a software engineer at <span class="text-banana-yellow font-semibold animated-text cursor-pointer">
             <span>A</span><span>m</span><span>a</span><span>z</span><span>o</span><span>n</span>
           </span>.
         </span>
@@ -237,7 +314,8 @@ export default function Home() {
             {projectInfo.map((project, index) => (
               <a
                 href={project.website}
-                target="_blank" rel="noopener noreferrer"
+                target="_blank"
+                rel="noopener noreferrer"
                 key={index}
                 className={`${index === 0 ? 'sm:col-span-2 col-span-1' : 'col-span-1'} relative rounded-lg shadow-md group`}
               >
