@@ -13,6 +13,7 @@ export default function Footer() {
             animate={{ opacity: 1 }}
             transition={{ duration: 1.5 }}
             className='font-pixelify'
+            id = "footer"
         >
             {/* Black separator line */}
 
@@ -21,17 +22,16 @@ export default function Footer() {
             <div className='flex flex-row justify-between px-[10%] lg:px-60 pt-14 pb-24'>
                 <div className="flex flex-row gap-10">
                     <div className='flex flex-col gap-2'>
-                        <a href="mailto:jeff0827@berkeley.edu" className='self-start footer-hover-effect'>&lt;Email&gt;</a>
-                        <a href="https://drive.google.com/file/d/1Bk07BZNe7QwLKi1MMZFREW3d-MooIDDb/view?usp=sharing" className='self-start footer-hover-effect'>&lt;Resume&gt;</a>
+                        <a href="mailto:jeff0827@berkeley.edu" className='self-start footer-hover-effect' target="_blank" rel="noopener noreferrer">&lt;Email&gt;</a>
+                        <a href="https://drive.google.com/file/d/1Bk07BZNe7QwLKi1MMZFREW3d-MooIDDb/view?usp=sharing" target="_blank" rel="noopener noreferrer" className='self-start footer-hover-effect'>&lt;Resume&gt;</a>
                     </div>
                     <div className='flex flex-col gap-2'>
-                        <a href="https://www.linkedin.com/in/jeffreyhuang2002/" className='self-start footer-hover-effect'>&lt;LinkedIn&gt;</a>
-                        <a href="https://github.com/jefforee" className='self-start footer-hover-effect'>&lt;Github&gt;</a>
+                        <a href="https://www.linkedin.com/in/jeffreyhuang2002/" target="_blank" rel="noopener noreferrer" className='self-start footer-hover-effect'>&lt;LinkedIn&gt;</a>
+                        <a href="https://github.com/jefforee" target="_blank" rel="noopener noreferrer" className='self-start footer-hover-effect'>&lt;Github&gt;</a>
                     </div>
                 </div>
 
                 <div className='flex flex-col justify-end items-end'>
-                    
                     <div className="image-container">
                         <div className="image-wrapper">
                             <Image src={YellowBasket} alt="Yellow Basket" class="image" />

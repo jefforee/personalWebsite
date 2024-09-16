@@ -21,6 +21,7 @@ export default function Navbar() {
         initial={{ opacity: 0}}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.5}}
+        className='z-100'
         >
             <div className="fadeIn pt-2 md:pt-4 flex flex-row justify-between items-start md:items-center px-[10%] lg:px-60">
                 {/* Leftside */}
