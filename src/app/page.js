@@ -93,7 +93,7 @@ export default function Home() {
   const handleShakingClick = () => {
     setClickCount(prevCount => prevCount + 1);
     setShakeClass(`shake-shake${Math.min(clickCount + 1, 5)}`);
-    
+
     setTimeout(() => setShakeClass(''), 600); // Reset shake class after animation
   };
 
@@ -181,16 +181,17 @@ export default function Home() {
             <span>A</span><span>m</span><span>a</span><span>z</span><span>o</span><span>n</span>
           </span>.
         </span>
-        <a href="#project" className="self-start text-xl xl:text-[1.5vw] font-pixelify mt-10 jumping-text cursor-pointer" onClick={() => setHasStarted(true)}>
-          <span class="arrow">&gt;</span><span></span>
-          <span>P</span><span>R</span><span>E</span><span>S</span><span>S</span>
+        <a href="#project-start" className="self-start text-xl xl:text-[1.5vw] font-pixelify mt-10 jumping-text cursor-pointer" onClick={() => setHasStarted(true)}>
+          {/* <span class="arrow">&gt;</span><span></span> */}
+          {/* <span>P</span><span>R</span><span>E</span><span>S</span><span>S</span>
           <span>&nbsp;</span>
-          <span>S</span><span>T</span><span>A</span><span>R</span><span>T</span>
+          <span>S</span><span>T</span><span>A</span><span>R</span><span>T</span> */}
+          <span className='blinking-text'>&gt; PRESS START</span>
         </a>
-
 
       </div>
       {/* Projects */}
+      <div id="project-start"></div>
 
       {hasStarted && (
         <motion.div
@@ -306,9 +307,9 @@ export default function Home() {
         >
           {/* Experience Sign */}
           <div
-      className={`relative ${shakeClass} ${isMobile ? "w-28" : "w-[19vw]"}`}
-      onClick={handleShakingClick}
-    >
+            className={`relative ${shakeClass} ${isMobile ? "w-28" : "w-[19vw]"}`}
+            onClick={handleShakingClick}
+          >
             <Image
               src={longLabelSign}
               alt="Label Sign"
