@@ -575,3 +575,358 @@ a {
     animation: moveOutInBottomRight 1s infinite;
   }
   
+
+/* Base style for smooth transitions */
+.tilt-sign-right, .tilt-sign-left {
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Tilt-right animation */
+@keyframes fall-right {
+  0% { transform: rotate(0deg); }
+  40% { transform: rotate(-100deg); }
+  60% { transform: rotate(-60deg); }
+  80% { transform: rotate(-75deg); }
+  100% { transform: rotate(-70deg); }
+}
+
+.tilt-sign-right.active {
+  transform-origin: right top; /* Anchor the tilt at the top-right corner */
+  animation: fall-right 1.5s ease-out forwards;
+}
+
+/* Tilt-left animation */
+@keyframes fall-left {
+  0% { transform: rotate(0deg); }
+  40% { transform: rotate(100deg); }
+  60% { transform: rotate(60deg); }
+  80% { transform: rotate(75deg); }
+  100% { transform: rotate(70deg); }
+}
+
+.tilt-sign-left.active {
+  transform-origin: left top; /* Anchor the tilt at the top-left corner */
+  animation: fall-left 1.4s ease-out forwards;
+}
+
+/* Reset animations */
+.reset-left, .reset-right {
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Reset-left animation */
+@keyframes reset-left {
+  0% { transform: rotate(70deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.reset-left.active {
+  transform-origin: left top; /* Anchor the reset at the top-left corner */
+  animation: reset-left 1.4s ease-out forwards;
+}
+
+/* Reset-right animation */
+@keyframes reset-right {
+  0% { transform: rotate(-70deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.reset-right.active {
+  transform-origin: right top; /* Anchor the reset at the top-right corner */
+  animation: reset-right 1.5s ease-out forwards;
+}
+
+/* Apply this class to your project description paragraph */
+.project-description {
+  display: -webkit-box;        /* Allows text to wrap with ellipsis */
+  -webkit-line-clamp: 3;       /* Limit the number of lines before truncating */
+  -webkit-box-orient: vertical;/* Needed for -webkit-line-clamp to work */
+  overflow: hidden;            /* Hide text that overflows */
+  text-overflow: ellipsis;     /* Show ellipsis (...) when text overflows */
+  line-height: 1.5;            /* Adjust based on your design */
+}
+
+
+.gradient-effect {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap; /* Prevent text from wrapping */
+}
+
+/* Gradient effect that moves from left to right */
+.gradient-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to right, #F0B541, transparent);
+  transition: left 0.5s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Hover effect to move the gradient */
+.gradient-effect:hover::before {
+  left: 100%;
+}
+
+/* Initial text color */
+.gradient-effect span {
+  position: relative;
+  display: inline-block;
+  color: black; /* Initial text color */
+  transition: color 0.5s ease;
+}
+
+/* Change color on hover */
+.gradient-effect:hover span {
+  color: #F0B541;
+}
+
+/* Apply delay to each span */
+.gradient-effect span:nth-child(1) {
+  transition-delay: 0s;
+}
+
+.gradient-effect span:nth-child(2) {
+  transition-delay: 0.1s;
+}
+
+.gradient-effect span:nth-child(3) {
+  transition-delay: 0.11s;
+}
+
+.gradient-effect span:nth-child(4) {
+  transition-delay: 0.12s;
+}
+
+.gradient-effect span:nth-child(5) {
+  transition-delay: 0.13s;
+}
+
+.gradient-effect span:nth-child(6) {
+  transition-delay: 0.14s;
+}
+
+
+
+.footer-hover-effect {
+  color: #18272F; /* Default text color */
+  position: relative;
+  text-decoration: none;
+  overflow: hidden; /* Ensure no overflow of the effect */
+}
+
+.footer-hover-effect::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  border-radius: 4px;
+  background-color: #F0B541; /* Yellow color for the highlight effect */
+  bottom: 0;
+  left: 0;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.footer-hover-effect:hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+
+/* Container for all images */
+.image-container {
+  display: flex; /* Aligns the images in a row */
+  gap: 10px; /* Space between images */
+}
+
+/* Wrapper for each image and its description */
+.image-wrapper {
+  position: relative; /* For positioning the description */
+}
+
+/* Image styling */
+.image {
+  display: block; /* Removes any extra space below the image */
+  transition: opacity 0.3s ease; /* Smooth transition */
+}
+
+/* Description styling */
+.description {
+  position: absolute; /* Positions the description relative to the wrapper */
+  left: -10px;
+  padding-left: 3px;
+  padding-right: 3px;
+  bottom: 35px; /* Adjust as needed */
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s ease; /* Smooth transition */
+
+}
+
+/* Show description on hover */
+.image-wrapper:hover .description {
+  opacity: 1; /* Show description */
+}
+
+@keyframes shake1 {
+  0% {
+    transform: rotate(0deg) translateX(0);
+  }
+  25% {
+    transform: rotate(-5deg) translateX(-10px);
+  }
+  50% {
+    transform: rotate(5deg) translateX(10px);
+  }
+  75% {
+    transform: rotate(-3deg) translateX(-5px);
+  }
+  100% {
+    transform: rotate(0deg) translateX(0);
+  }
+}
+
+@keyframes shake2 {
+  0% {
+    transform: rotate(0deg) translateX(0);
+  }
+  25% {
+    transform: rotate(-8deg) translateX(-15px);
+  }
+  50% {
+    transform: rotate(8deg) translateX(15px);
+  }
+  75% {
+    transform: rotate(-5deg) translateX(-10px);
+  }
+  100% {
+    transform: rotate(0deg) translateX(0);
+  }
+}
+
+@keyframes shake3 {
+  0% {
+    transform: rotate(0deg) translateX(0);
+  }
+  25% {
+    transform: rotate(-10deg) translateX(-20px);
+  }
+  50% {
+    transform: rotate(10deg) translateX(20px);
+  }
+  75% {
+    transform: rotate(-7deg) translateX(-15px);
+  }
+  100% {
+    transform: rotate(0deg) translateX(0);
+  }
+}
+
+@keyframes shake4 {
+  0% {
+    transform: rotate(0deg) translateX(0);
+  }
+  25% {
+    transform: rotate(-12deg) translateX(-25px);
+  }
+  50% {
+    transform: rotate(12deg) translateX(25px);
+  }
+  75% {
+    transform: rotate(-10deg) translateX(-20px);
+  }
+  100% {
+    transform: rotate(0deg) translateX(0);
+  }
+}
+
+@keyframes shake5 {
+  0% {
+    transform: rotate(0deg) translateX(0);
+  }
+  25% {
+    transform: rotate(-15deg) translateX(-30px);
+  }
+  50% {
+    transform: rotate(15deg) translateX(30px);
+  }
+  75% {
+    transform: rotate(-12deg) translateX(-25px);
+  }
+  100% {
+    transform: rotate(0deg) translateX(0);
+  }
+}
+
+.shake {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.shake-shake1 {
+  animation: shake1 0.6s ease;
+}
+
+.shake-shake2 {
+  animation: shake2 0.6s ease;
+}
+
+.shake-shake3 {
+  animation: shake3 0.6s ease;
+}
+
+.shake-shake4 {
+  animation: shake4 0.6s ease;
+}
+
+.shake-shake5 {
+  animation: shake5 0.6s ease;
+}
+
+
+.shake-on-click {
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.shake {
+  animation: shake 0.6s ease;
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(0deg) translateX(0);
+  }
+  25% {
+    transform: rotate(-5deg) translateX(-10px);
+  }
+  50% {
+    transform: rotate(5deg) translateX(10px);
+  }
+  75% {
+    transform: rotate(-3deg) translateX(-5px);
+  }
+  100% {
+    transform: rotate(0deg) translateX(0);
+  }
+}
+
+.crawling-image {
+  animation: crawl 1s ease-in-out forwards;
+}
+
+@keyframes crawl {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

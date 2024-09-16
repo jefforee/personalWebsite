@@ -12,7 +12,6 @@ export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
 
-
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
@@ -97,7 +96,7 @@ export default function Navbar() {
                     {/* Icons row for medium and larger screens */}
                     <div className="hidden md:flex md:flex-row md:gap-4 md:items-center">
                         <a>
-                            <TbFileCv className="w-6 h-6 bounce-button" />
+                            <TbFileCv href="https://drive.google.com/file/d/1Bk07BZNe7QwLKi1MMZFREW3d-MooIDDb/view?usp=sharing" className="w-6 h-6 bounce-button" />
                         </a>
                         <a href="https://www.linkedin.com/in/jeffreyhuang2002/">
 
