@@ -273,7 +273,7 @@ export default function Home() {
       {hasStarted && (
         <motion.div
           initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={{ opacity: 1, y: 10 }}
           transition={{ duration: 2 }}
           id="project"
           className="flex flex-col justify-center items-center"

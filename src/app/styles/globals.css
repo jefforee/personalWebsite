@@ -200,7 +200,7 @@ a {
 
 /* Blinking Effect */
 .blinking-text {
-  text-shadow: 0 0 3px #F0B541; /* Optional: glow effect for retro style */
+  /* text-shadow: 0 0 3px #F0B541; Optional: glow effect for retro style */
   animation: blink-animation 1s infinite;
 }
 
