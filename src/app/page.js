@@ -21,6 +21,13 @@ import ibmPixel from "../../public/images/ibmPixel.png"
 import coinPixel from "../../public/images/coinPixel.png"
 import banana from "../../public/images/banana.png"
 
+import topLeftSelect from "../../public/images/topLeftSelect.png"
+import topRightSelect from "../../public/images/topRightSelect.png"
+import bottomLeftSelect from "../../public/images/bottomLeftSelect.png"
+import bottomRightSelect from "../../public/images/bottomRightSelect.png"
+
+import { motion } from 'framer-motion';
+
 export default function Home() {
   const projectInfo = [
     {
@@ -74,6 +81,7 @@ export default function Home() {
   ];
 
   const [isMobile, setIsMobile] = useState(false); // Default to smallBorder
+  const [hasStarted, setHasStarted] = useState(false); // Track if the button is pressed
 
 
   useEffect(() => {
@@ -98,12 +106,24 @@ export default function Home() {
     return () => window.removeEventListener('resize', updateImageSrc);
   }, []);
 
+  const fadeIn = () => {
+    const timer = setTimeout(() => {
+      setHasStarted(true);
+    }, 500); // Delay the fade-in by 0.5 seconds
+
+    return () => clearTimeout(timer); // Cleanup the timer
+  }
+
 
   return (
-    <div>
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1 }}
+    >
 
       {/*Intro  */}
-      <div className="flex flex-col h-screen">
+      <div className="flex flex-col h-screen mt-[-54px] justify-center">
 
         {/* Name and dinosaur */}
         <div className="flex flex-row sm:items-center">
@@ -133,7 +153,7 @@ export default function Home() {
         <span className={`text-lg xl:text-[1.5vw] ${isMobile ? '-mt-12' : 'sm:mt-4'}`}>
           A keyboard enthusiast, foodie, photographer, and gamer who is passionate about impactful software and finding&nbsp;
           <span className="text-banana-yellow font-semibold banana-hover relative">banana
-            <Image src={banana} width={200} alt="Banana image" class="pop-up-image" />
+            <Image src={banana} alt="Banana image" class="pop-up-image" />
           </span>-flavored snacks.
         </span>
 
@@ -145,7 +165,7 @@ export default function Home() {
             <span>A</span><span>m</span><span>a</span><span>z</span><span>o</span><span>n</span>
           </span>.
         </span>
-        <a href="#project" class="self-start text-xl xl:text-[1.5vw] font-pixelify mt-10 jumping-text ">
+        <a href="#project" className="self-start text-xl xl:text-[1.5vw] font-pixelify mt-10 jumping-text cursor-pointer" onClick={() => setHasStarted(true)}>
           <span class="arrow">&gt;</span><span></span>
           <span>P</span><span>R</span><span>E</span><span>S</span><span>S</span>
           <span>&nbsp;</span>
@@ -154,145 +174,171 @@ export default function Home() {
 
 
       </div>
-
       {/* Projects */}
-      <div id="project" className="flex flex-col justify-center items-center">
-        {/* Project Sign */}
-        <div className={`relative ${isMobile ? "w-24" : "w-[15vw]"} magic-cloud`}>
-          <Image
-            src={labelSign}
-            alt="Label Sign"
-          />
-          <div className="absolute top-[47%] left-1/2 transform -translate-x-1/2 -translate-y-[60%] sm:-translate-y-1/2">
-            <span className={`font-pixelify ${isMobile ? "text-xs" : "text-[2vw]"} tracking-widest`}>
-              <span className="text-banana-yellow">&lt;</span>
-              PROJECT
-              <span className="text-banana-yellow">&gt;</span>
-            </span>
+      {hasStarted && (
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 2 }}
+          id="project"
+          className="flex flex-col justify-center items-center"
+        >
+          {/* Project Sign */}
+          <div className={`relative ${isMobile ? "w-24" : "w-[15vw]"} magic-cloud`}>
+            <Image
+              src={labelSign}
+              alt="Label Sign"
+            />
+            <div className="absolute top-[47%] left-1/2 transform -translate-x-1/2 -translate-y-[60%] sm:-translate-y-1/2">
+              <span className={`font-pixelify ${isMobile ? "text-xs" : "text-[2vw]"} tracking-widest`}>
+                <span className="text-banana-yellow ">&lt;</span>
+                PROJECT
+                <span className="text-banana-yellow">&gt;</span>
+              </span>
+            </div>
+
+            {/* Bubbles */}
+            <div className="bubble red z-10"></div>
+            <div className="bubble red z-10"></div>
+            <div className="bubble red z-10"></div>
+            <div className="bubble blue z-10"></div>
+            <div className="bubble blue z-10"></div>
+            <div className="bubble pink z-10"></div>
+            <div className="bubble pink z-10"></div>
+            <div className="bubble pink z-10"></div>
           </div>
 
-          {/* Bubbles */}
-          <div className="bubble red z-10"></div>
-          <div className="bubble red z-10"></div>
-          <div className="bubble red z-10"></div>
-          <div className="bubble blue z-10"></div>
-          <div className="bubble blue z-10"></div>
-          <div className="bubble pink z-10"></div>
-          <div className="bubble pink z-10"></div>
-          <div className="bubble pink z-10"></div>
-        </div>
+          {/* Project Grid */}
+<div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2 md:mt-8">
+  {projectInfo.map((project, index) => (
+    <div
+      key={index}
+      className={`${index === 0 ? 'sm:col-span-2 col-span-1' : 'col-span-1'} relative rounded-lg shadow-md group`}
+    >
+      {/* Project Image */}
+      {isMobile ?
+        (<Image
+          src={smallBorder}
+          alt={project.title}
+          layout="responsive"
+          width={500}
+          height={200}
+        />)
+        :
+        (<Image
+          src={index === 0 ? bigBorder : smallBorder}
+          alt={project.title}
+          layout="responsive"
+          width={500}
+          height={200}
+        />)
+      }
 
-        {/* Project Grid */}
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2 md:mt-8">
-          {projectInfo.map((project, index) => (
-            <div
-              key={index}
-              className={`${index === 0 ? 'sm:col-span-2 col-span-1' : 'col-span-1'} relative rounded-lg overflow-hidden shadow-md"`}
-            >
-              {isMobile ?
-                (<Image
-                  src={smallBorder}
-                  alt={project.title}
-                  layout="responsive"
-                  width={500}
-                  height={200}
-                />)
-                :
-                (<Image
-                  src={index === 0 ? bigBorder : smallBorder}
-                  alt={project.title}
-                  layout="responsive"
-                  width={500}
-                  height={200}
-                />)
-              }
-
-              <div className="absolute inset-0 flex flex-col p-4 md:p-8">
-                {isMobile ?
-                  (<Image
-                    src={project.small_image}
-                    className="shadow-custom border-[3px] border-gray-800"
-                  ></Image>)
-                  :
-                  (<Image
-                    src={index === 0 ? project.large_image : project.small_image}
-                    className="shadow-custom border-[3px] border-gray-800"
-                  ></Image>)
-                }
-                <h1 className="text-xl lg:text-[1.5vw] font-semibold mt-2">{project.title}</h1>
-                <p className={`${isMobile ? "text-xs" : "text-[1.5vw]"} lg:text-[1vw] leading-none sm:leading-normal xl:leading-5 text-gray-700 overflow-ellipsis`}>{project.description}</p>
-              </div>
-            </div>
-          ))}
-
-
-
-        </div>
+      {/* Hover Effect Wrapper */}
+      <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 z-10">
+        {/* Corner Images */}
+        <Image src={topLeftSelect} alt="Top Left" className="absolute top-[-18px] left-[-16px] w-10 h-10 animate-out-in-top-left" />
+        <Image src={topRightSelect} alt="Top Right" className="absolute top-[-18px] right-[-16px] w-10 h-10 animate-out-in-top-right" />
+        <Image src={bottomLeftSelect} alt="Bottom Left" className="absolute bottom-[-18px] left-[-16px] w-10 h-10 animate-out-in-bottom-left" />
+        <Image src={bottomRightSelect} alt="Bottom Right" className="absolute bottom-[-18px] right-[-16px] w-10 h-10 animate-out-in-bottom-right" />
       </div>
+
+      {/* Project Details */}
+      <div className="absolute inset-0 flex flex-col p-4 md:p-8">
+        {isMobile ?
+          (<Image
+            src={project.small_image}
+            className="shadow-custom border-[3px] border-gray-800"
+          />)
+          :
+          (<Image
+            src={index === 0 ? project.large_image : project.small_image}
+            className="shadow-custom border-[3px] border-gray-800"
+          />)
+        }
+        <h1 className="text-xl lg:text-[1.5vw] font-semibold mt-2">{project.title}</h1>
+        <p className={`${isMobile ? "text-xs" : "text-[1.5vw]"} lg:text-[1vw] leading-none sm:leading-normal xl:leading-5 text-gray-700 overflow-ellipsis`}>{project.description}</p>
+      </div>
+    </div>
+  ))}
+</div>
+
+
+        </motion.div>
+
+      )}
 
       {/* Experience */}
-      <div className="flex flex-col justify-center items-center mt-8 sm:mt-52">
-        {/* Experience Sign */}
-        <div className={`relative ${isMobile ? "w-28" : " w-[19vw]"}`}>
-          <Image
-            src={longLabelSign}
-            alt="Label Sign"
-          />
-          <div className="absolute top-[47%] left-1/2 transform -translate-x-1/2 -translate-y-[60%] sm:-translate-y-1/2">
-            <span className={`font-pixelify ${isMobile ? "text-xs" : "text-[2vw]"} tracking-widest`}>
-              <span className="text-banana-yellow">&lt;</span>
-              EXPERIENCE
-              <span className="text-banana-yellow">&gt;</span>
-            </span>
+      {hasStarted && (
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 2 }}
+          className="flex flex-col justify-center items-center mt-8 sm:mt-52"
+        >
+          {/* Experience Sign */}
+          <div className={`relative ${isMobile ? "w-28" : " w-[19vw]"}`}>
+            <Image
+              src={longLabelSign}
+              alt="Label Sign"
+            />
+            <div className="absolute top-[47%] left-1/2 transform -translate-x-1/2 -translate-y-[60%] sm:-translate-y-1/2">
+              <span className={`font-pixelify ${isMobile ? "text-xs" : "text-[2vw]"} tracking-widest`}>
+                <span className="text-banana-yellow">&lt;</span>
+                EXPERIENCE
+                <span className="text-banana-yellow">&gt;</span>
+              </span>
+            </div>
           </div>
-        </div>
 
-        <div className="relative w-[50vw] mt-2 sm:mt-8">
-          {/* Container for the images */}
-          <div className={`flex flex-col text-gray-700 ${isMobile ? "justify-center items-center" : ""}`}>
-            {experienceInfo.map((experience, index) => (
-              <div key={index} className={`relative ${isMobile ? "h-[4vw] w-[65vw]" : "h-[4vw]"} group hover:text-black mb-4`}>
-                <Image
-                  src={experienceGray}
-                  layout="responsive"
-                  className="absolute transition-opacity duration-500 ease-in-out"
-                />
-                <Image
-                  src={experienceYellow}
-                  layout="responsive"
-                  className="absolute transition-opacity duration-500 ease-in-out opacity-0 group-hover:opacity-100"
-                />
-
-                <div className="absolute inset-0 flex flex-row items-center space-x-1 sm:space-x-3 z-10 top-[45%] left-3 transform -translate-y-[30%] sm:-translate-y-1/2">
+          <div className="relative w-[50vw] mt-2 sm:mt-8">
+            {/* Container for the images */}
+            <div className={`flex flex-col text-gray-700 ${isMobile ? "justify-center items-center" : ""}`}>
+              {experienceInfo.map((experience, index) => (
+                <div key={index} className={`relative ${isMobile ? "h-[4vw] w-[65vw]" : "h-[4vw]"} group hover:text-black mb-4`}>
                   <Image
-                    src={experience.icon}
-                    alt={`Icon ${index}`}
-                    className={`aspect-square z-10 ${experience.company == "IBM" ? "mb-5 w-[4.25vw] h-[4.5vw]" : "mb-6 w-[4vw] h-[4vw]"} ${isMobile ? "mb-0" : ""}`}
-                    layout="fixed"
+                    src={experienceGray}
+                    layout="responsive"
+                    className="absolute transition-opacity duration-500 ease-in-out"
                   />
-                  <div className={`flex flex-row w-full items-center justify-between font-light ${isMobile ? "text-[9px]" : "text-[1.15vw]"}`}>
-                    <div>
-                      <span className="font-semibold">{experience.company}</span>
-                      &nbsp;
-                      <span className="">{experience.role}</span>
+                  <Image
+                    src={experienceYellow}
+                    layout="responsive"
+                    className="absolute transition-opacity duration-500 ease-in-out opacity-0 group-hover:opacity-100"
+                  />
+
+                  <div className="absolute inset-0 flex flex-row items-center space-x-1 sm:space-x-3 z-10 top-[45%] left-3 transform -translate-y-[30%] sm:-translate-y-1/2">
+                    <Image
+                      src={experience.icon}
+                      alt={`Icon ${index}`}
+                      className={`aspect-square z-10 ${experience.company == "IBM" ? "mb-5 w-[4.25vw] h-[4.5vw]" : "mb-6 w-[4vw] h-[4vw]"} ${isMobile ? "mb-0" : ""}`}
+                      layout="fixed"
+                    />
+                    <div className={`flex flex-row w-full items-center justify-between font-light ${isMobile ? "text-[9px]" : "text-[1.15vw]"}`}>
+                      <div>
+                        <span className="font-semibold">{experience.company}</span>
+                        &nbsp;
+                        <span className="">{experience.role}</span>
+                      </div>
+                      <div>
+                        <span className="font-pixelify justify-end mr-1 sm:mr-4">{experience.time}</span>
+                      </div>
                     </div>
-                    <div>
-                      <span className="font-pixelify justify-end mr-1 sm:mr-4">{experience.time}</span>
-                    </div>
+
                   </div>
-
                 </div>
-              </div>
-            ))}
+              ))}
 
+            </div>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      )}
 
 
 
 
-    </div>
+
+    </motion.div>
 
   );
 }

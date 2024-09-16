@@ -509,3 +509,69 @@ a {
       color: #F0B541;
     }
   }
+
+  @keyframes moveOutInTopLeft {
+    0% {
+      transform: translate(0px, 0px); /* Initial position */
+    }
+    50% {
+      transform: translate(-8px, -8px); /* Move up and to the left */
+    }
+    100% {
+      transform: translate(0px, 0px); /* Return to initial position */
+    }
+  }
+  
+  @keyframes moveOutInTopRight {
+    0% {
+      transform: translate(0px, 0px); /* Initial position */
+    }
+    50% {
+      transform: translate(8px, -8px); /* Move down and to the right */
+    }
+    100% {
+      transform: translate(0px, 0px); /* Return to initial position */
+    }
+  }
+  
+  @keyframes moveOutInBottomLeft {
+    0% {
+      transform: translate(0px, 0px); /* Initial position */
+    }
+    50% {
+      transform: translate(-8px, 8px); /* Move down and to the left */
+    }
+    100% {
+      transform: translate(0px, 0px); /* Return to initial position */
+    }
+  }
+  
+  @keyframes moveOutInBottomRight {
+    0% {
+      transform: translate(0px, 0px); /* Initial position */
+    }
+    50% {
+      transform: translate(8px, 8px); /* Move down and to the right */
+    }
+    100% {
+      transform: translate(0px, 0px); /* Return to initial position */
+    }
+  }
+  
+  /* Apply the animations */
+  .animate-out-in-top-left {
+    animation: moveOutInTopLeft 1s infinite;
+  }
+  
+  .animate-out-in-top-right {
+    animation: moveOutInTopRight 1s infinite;
+  }
+  
+  .animate-out-in-bottom-left {
+    animation: moveOutInBottomLeft 1s infinite;
+  }
+  
+  .animate-out-in-bottom-right {
+    animation: moveOutInBottomRight 1s infinite;
+  }
+  

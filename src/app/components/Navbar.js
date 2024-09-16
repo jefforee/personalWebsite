@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation'
 import { useState } from 'react';
 import { TbFileCv, TbBrandLinkedin, TbBrandGithub } from 'react-icons/tb';
 import Typewriter from 'typewriter-effect';
+import { motion } from 'framer-motion';
 
 
 export default function Navbar() {
@@ -17,8 +18,12 @@ export default function Navbar() {
     };
 
     return (
-        <div>
-            <div className="pt-2 md:pt-4 flex flex-row justify-between items-start md:items-center px-[10%] lg:px-60">
+        <motion.div
+        initial={{ opacity: 0}}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.5}}
+        >
+            <div className="fadeIn pt-2 md:pt-4 flex flex-row justify-between items-start md:items-center px-[10%] lg:px-60">
                 {/* Leftside */}
                 <div className="font-pixelify font-light text-lg flex flex-row justify-start md:justify-center items-center gap-4">
                     {/* <button type="button" onClick={() => router.push('/')} className="font-medium text-xl mr-8 pt-2 md:pt-0">Jeffrey Huang</button> */}
@@ -109,6 +114,6 @@ export default function Navbar() {
             {/* Black separator line */}
             <div className="border-t-2 border-black w-full mt-2"></div>
 
-        </div>
+        </motion.div>
     )
 }

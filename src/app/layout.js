@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
       <body className="bg-[#E0E0DB] ">
         {/* NewBar */}
         <NavBar></NavBar>
-        <div className="w-full sm:py-2 md:py-12 lg:py-24 px-[10%] lg:px-60">
+        <div className="w-full px-[10%] lg:px-60">
           <main>{children}</main>
         </div>
       </body>
