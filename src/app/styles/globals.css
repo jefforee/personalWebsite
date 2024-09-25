@@ -885,9 +885,6 @@ a {
 }
 
 
-
-
-
 .iframe-container {
   position: relative;
   width: 100vw; /* Full width */
@@ -912,4 +909,113 @@ iframe {
 
 .overlay p {
   margin: 0;
+}
+
+
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.content {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.text_shadows {
+  text-shadow: 
+  3px 3px 0 #FBBC05, /* Bright yellow */
+    6px 6px 0 #F9A825, /* Yellow-orange */
+    9px 9px 0 #FF8F00, /* Orange */
+    12px 12px 0 #FF6F00; /* Bright orange */
+  /* font-family: pixelify, sans-serif; */
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: calc(2rem + 8vw);
+  text-align: center;
+  margin: 0;
+  color: #FBBC05; /* Primary color */
+  animation: shadows 1.2s ease-in infinite, move 1.2s ease-in infinite;
+  /* letter-spacing: 0.3rem; */
+}
+
+@keyframes shadows {
+  0% {
+    text-shadow: none; /* No shadow at the start */
+  }
+  10% {
+    text-shadow: 
+      3px 3px 0 #FBBC05; /* Bright yellow */
+  }
+  20% {
+    text-shadow: 
+      3px 3px 0 #FBBC05,
+      6px 6px 0 #F9A825; /* Adding yellow-orange */
+  }
+  30% {
+    text-shadow: 
+      3px 3px 0 #FBBC05,
+      6px 6px 0 #F9A825,
+      9px 9px 0 #FF8F00; /* Adding orange */
+  }
+  40% {
+    text-shadow: 
+      3px 3px 0 #FBBC05,
+      6px 6px 0 #F9A825,
+      9px 9px 0 #FF8F00,
+      12px 12px 0 #FF6F00; /* Adding bright orange */
+  }
+  50% {
+    text-shadow: 
+      3px 3px 0 #FBBC05,
+      6px 6px 0 #F9A825,
+      9px 9px 0 #FF8F00,
+      12px 12px 0 #FF6F00;
+  }
+  60% {
+    text-shadow: 
+      3px 3px 0 #FBBC05,
+      6px 6px 0 #F9A825,
+      9px 9px 0 #FF8F00,
+      12px 12px 0 #FF6F00;
+  }
+  70% {
+    text-shadow: 
+      3px 3px 0 #FBBC05,
+      6px 6px 0 #F9A825,
+      9px 9px 0 #FF8F00; /* Start to remove the faintest shadow */
+  }
+  80% {
+    text-shadow: 
+      3px 3px 0 #FBBC05,
+      6px 6px 0 #F9A825; /* Fading out more */
+  }
+  90% {
+    text-shadow: 
+      3px 3px 0 #FBBC05; /* Almost back to the first state */
+  }
+  100% {
+    text-shadow: none; /* No shadow at the end */
+  }
+}
+
+
+@keyframes move {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  40% {
+    transform: translate(-12px, -12px);
+  }
+  50% {
+    transform: translate(-12px, -12px);
+  }
+  60% {
+    transform: translate(-12px, -12px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
 }

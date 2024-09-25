@@ -1,8 +1,8 @@
 'use client'
 import { motion } from 'framer-motion';
-import RubberDuck from '../../../public/images/rubber_duck.png'
-import YellowBasket from '../../../public/images/basket_yellow.png'
-import YellowChips from '../../../public/images/potatochip_yellow.png'
+import RubberDuck from '../../../public/images/footer/rubber_duck.png'
+import YellowBasket from '../../../public/images/footer/basket_yellow.png'
+import YellowChips from '../../../public/images/footer/potatochip_yellow.png'
 
 import Image from 'next/image';
 
@@ -19,7 +19,7 @@ export default function Footer() {
 
             <div className="border-t-2 border-black w-full"></div>
 
-            <div className='flex flex-row justify-between px-[10%] lg:px-60 pt-14 pb-24'>
+            <div className='flex flex-row justify-between px-[10%] lg:px-60 pt-14 pb-2 sm:pb-24 text-[8px] sm:text-[1vw]'>
                 <div className="flex flex-row gap-10">
                     <div className='flex flex-col gap-2'>
                         <a href="mailto:jeff0827@berkeley.edu" className='self-start footer-hover-effect' target="_blank" rel="noopener noreferrer">&lt;Email&gt;</a>
@@ -34,20 +34,20 @@ export default function Footer() {
                 <div className='flex flex-col justify-end items-end'>
                     <div className="image-container">
                         <div className="image-wrapper">
-                            <Image src={YellowBasket} alt="Yellow Basket" class="image" />
+                            <Image src={YellowBasket} alt="Yellow Basket" class="image" style={{ imageRendering: 'pixelated' }}/>
                             <div class="description">Basket</div>
                         </div>
                         <div className="image-wrapper">
-                            <Image src={YellowChips} alt="Yellow Chips" class="image" />
+                            <Image src={YellowChips} alt="Yellow Chips" class="image" style={{ imageRendering: 'pixelated' }} />
                             <div class="description">Chips</div>
                         </div>
                         <div className="image-wrapper">
-                            <Image src={RubberDuck} alt="Rubber Duck" class="image" />
+                            <Image src={RubberDuck} alt="Rubber Duck" class="image" style={{ imageRendering: 'pixelated' }} />
                             <div class="description">Duck</div>
                         </div>
                     </div>
 
-                    <span className="gradient-effect">
+                    <span className="gradient-effect text-[8px] sm:text-[1vw]">
                         <span>Designed&nbsp;</span>
                         <span>and&nbsp;</span>
                         <span>coded&nbsp;</span>

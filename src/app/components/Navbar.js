@@ -10,7 +10,6 @@ import { motion } from 'framer-motion';
 export default function Navbar() {
     const router = useRouter()
     const [isOpen, setIsOpen] = useState(false);
-    const [isHovered, setIsHovered] = useState(false);
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -18,10 +17,10 @@ export default function Navbar() {
 
     return (
         <motion.div
-        initial={{ opacity: 0}}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.5}}
-        className='z-100'
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.5 }}
+            className='z-100'
         >
             <div className="fadeIn pt-2 md:pt-4 flex flex-row justify-between items-start md:items-center px-[10%] lg:px-60">
                 {/* Leftside */}
@@ -30,38 +29,6 @@ export default function Navbar() {
                     <a href="/" className="flip-animate mr-8" >
                         Jeffrey&nbsp;<span class="flip-text" data-hover="Huang">Huang</span>
                     </a>
-
-                    {/* <a href="/" className="mr-8" >
-                        Jeffrey&nbsp;<span class="hover-text" data-hover="Huang">Huang</span>
-                    </a> */}
-
-{/* <div
-      style={{ display: 'inline-block' }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-     
-        <Typewriter
-          onInit={(typewriter) => {
-            typewriter
-              .typeString('Jeffrey Huang')
-              .pauseFor(2000)
-              .deleteAll()
-              .typeString('Billy')
-              .pauseFor(2000)
-              .start()
-          }}
-          options={{
-            delay: 50, // Adjust typing speed
-            loop: true,
-    
-          
-        />
-      )}
-    </div> */}
-
-                    
-
 
                     <div className='hidden md:flex flex-row gap-4 items-center justify-center'>
                         <button className="bounce-button" type="button" onClick={() => router.push('/')}>Work</button>

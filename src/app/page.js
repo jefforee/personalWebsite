@@ -2,31 +2,31 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import labelSign from "../../public/images/label_sign.png"
-import longLabelSign from "../../public/images/long_label_sign.png"
-import dinosaur from "../../public/images/dinosaur_game.png"
-import bigBorder from "../../public/images/big_border.png"
-import smallBorder from "../../public/images/small_border.png"
-import GCALPreview from "../../public/images/GCAL_Template.png"
-import GCALPreviewLarge from "../../public/images/GCAL_Template_Large.png"
-import UniPreview from "../../public/images/Uni_Template.png"
-import NotiomPreview from "../../public/images/Notiom_Template.png"
-import RRGPreview from "../../public/images/RRG_Template.png"
-import experienceGray from "../../public/images/experience_gray.png"
-import experienceYellow from "../../public/images/experience_yellow.png"
-import amazonPixel from "../../public/images/amazonPixel.png"
-import ethicalPixel from "../../public/images/ethicalPixel.png"
-import kaiduPixel from "../../public/images/kaiduPixel.png"
-import ibmPixel from "../../public/images/ibmPixel.png"
-import banana from "../../public/images/banana.png"
-import pikmin from "../../public/images/pikminPixel.png"
-import luckyBlock from "../../public/images/luckyBlockPixel.png"
+import labelSign from "../../public/images/home/label_sign.png"
+import longLabelSign from "../../public/images/experiences/long_label_sign.png"
+import dinosaur from "../../public/images/home/dinosaur_game.png"
+import bigBorder from "../../public/images/projects/big_border.png"
+import smallBorder from "../../public/images/projects/small_border.png"
+import GCALPreview from "../../public/images/projects/GCAL_Template.png"
+import GCALPreviewLarge from "../../public/images/projects/GCAL_Template_Large.png"
+import UniPreview from "../../public/images/projects/Uni_Template.png"
+import NotiomPreview from "../../public/images/projects/Notiom_Template.png"
+import RRGPreview from "../../public/images/projects/RRG_Template.png"
+import experienceGray from "../../public/images/experiences/experience_gray.png"
+import experienceYellow from "../../public/images/experiences/experience_yellow.png"
+import amazonPixel from "../../public/images/experiences/amazonPixel.png"
+import ethicalPixel from "../../public/images/experiences/ethicalPixel.png"
+import kaiduPixel from "../../public/images/experiences/kaiduPixel.png"
+import ibmPixel from "../../public/images/experiences/ibmPixel.png"
+import banana from "../../public/images/home/banana.png"
+import pikmin from "../../public/images/experiences/pikminPixel.png"
+import luckyBlock from "../../public/images/home/luckyBlockPixel.png"
 
 
-import topLeftSelect from "../../public/images/topLeftSelect.png"
-import topRightSelect from "../../public/images/topRightSelect.png"
-import bottomLeftSelect from "../../public/images/bottomLeftSelect.png"
-import bottomRightSelect from "../../public/images/bottomRightSelect.png"
+import topLeftSelect from "../../public/images/experiences/topLeftSelect.png"
+import topRightSelect from "../../public/images/experiences/topRightSelect.png"
+import bottomLeftSelect from "../../public/images/experiences/bottomLeftSelect.png"
+import bottomRightSelect from "../../public/images/experiences/bottomRightSelect.png"
 import { useHasStarted } from './contexts/HasStartedContext';
 import { motion } from 'framer-motion';
 
@@ -189,7 +189,7 @@ export default function Home() {
             <span className="text-xl xl:text-[2vw] mr-2">
               Hello, I am
             </span>
-            <span className="text-9xl text-[9vw] font-semibold flex flex-row items-end">
+            <span className="leading-none	text-[9vw] font-semibold flex flex-row items-end">
               Jeffrey
               <div class="flex mb-2 md:mb-3 lg:mb-4 cursor-pointer">
                 <span class="heartbeat"></span>
@@ -341,10 +341,10 @@ export default function Home() {
                 {/* Hover Effect Wrapper */}
                 <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 cursor-pointer z-10">
                   {/* Corner Images */}
-                  <Image src={topLeftSelect} alt="Top Left" className={`absolute ${isMobile ? "top-[-14px] left-[-12px] w-6 h-6" : "top-[-18px] left-[-16px] w-10 h-10"} animate-out-in-top-left`} />
-                  <Image src={topRightSelect} alt="Top Right" className={`absolute ${isMobile ? "top-[-14px] right-[-12px] w-6 h-6" : "top-[-18px] right-[-16px] w-10 h-10"} animate-out-in-top-right`} />
-                  <Image src={bottomLeftSelect} alt="Bottom Left" className={`absolute ${isMobile ? "bottom-[-14px] left-[-12px] w-6 h-6" : "bottom-[-18px] left-[-16px] w-10 h-10"} animate-out-in-bottom-left`} />
-                  <Image src={bottomRightSelect} alt="Bottom Right" className={`absolute ${isMobile ? "bottom-[-14px] right-[-12px] w-6 h-6" : "bottom-[-18px] right-[-16px] w-10 h-10"} animate-out-in-bottom-right`} />
+                  <Image src={topLeftSelect} alt="Top Left" className={`absolute ${isMobile ? "top-[-14px] left-[-12px] w-6 h-6" : "top-[-18px] left-[-16px] w-10 h-10"} animate-out-in-top-left`} style={{ imageRendering: 'pixelated' }}/>
+                  <Image src={topRightSelect} alt="Top Right" className={`absolute ${isMobile ? "top-[-14px] right-[-12px] w-6 h-6" : "top-[-18px] right-[-16px] w-10 h-10"} animate-out-in-top-right`} style={{ imageRendering: 'pixelated' }}/>
+                  <Image src={bottomLeftSelect} alt="Bottom Left" className={`absolute ${isMobile ? "bottom-[-14px] left-[-12px] w-6 h-6" : "bottom-[-18px] left-[-16px] w-10 h-10"} animate-out-in-bottom-left`} style={{ imageRendering: 'pixelated' }}/>
+                  <Image src={bottomRightSelect} alt="Bottom Right" className={`absolute ${isMobile ? "bottom-[-14px] right-[-12px] w-6 h-6" : "bottom-[-18px] right-[-16px] w-10 h-10"} animate-out-in-bottom-right`} style={{ imageRendering: 'pixelated' }}/>
                 </div>
 
                 {/* Project Details */}
@@ -381,15 +381,16 @@ export default function Home() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 2 }}
-          className="flex flex-col justify-center items-center mt-8 sm:mt-52 pb-32 cursor-pointer"
+          className="flex flex-col justify-center items-center mt-8 sm:mt-52 pb-32"
         >
           {/* Experience Sign */}
           <div
-            className={`relative ${shakeClass} ${isMobile ? "w-28" : "w-[19vw]"}`}
+            className={`relative ${shakeClass} ${isMobile ? "w-28" : "w-[19vw]"} cursor-pointer`}
             onClick={handleShakingClick}
           >
             <Image
               src={longLabelSign}
+              
               alt="Label Sign"
             />
 
@@ -417,7 +418,7 @@ export default function Home() {
           <div className="relative w-[50vw] mt-2 sm:mt-8">
             <div className={`flex flex-col text-gray-700 ${isMobile ? "justify-center items-center" : ""}`}>
               {experienceInfo.map((experience, index) => (
-                <div key={index} className={`relative ${isMobile ? "h-[4vw] w-[70vw]" : "h-[4vw]"} group hover:text-black mb-4`}>
+                <div key={index} className={`relative ${isMobile ? "h-[4vw] w-[70vw]" : "h-[4vw]"} group hover:text-black mb-4 cursor-pointer`}>
                   <Image
                     src={experienceGray}
                     layout="responsive"
@@ -433,7 +434,8 @@ export default function Home() {
                     <Image
                       src={experience.icon}
                       alt={`Icon ${index}`}
-                      className={`aspect-square z-10 ${(experience.company == "IBM" && !isMobile) ? "mb-5 w-[4.25vw] h-[4.5vw]" : "w-[4vw] h-[4vw]"} ${isMobile ? "mb-0" : "mb-6"}`}
+                      style={{ imageRendering: 'pixelated' }}
+                      className={`aspect-square z-10 ${(experience.company == "IBM" && !isMobile) ? "mb-[8px] w-[4.25vw] h-[4.5vw]" : "w-[4vw] h-[4vw]"} ${isMobile ? "mb-0" : "mb-6"}`}
                       layout="fixed"
                     />
                     <div className={`flex flex-row w-full items-center justify-between font-light ${isMobile ? "text-[7px]" : "text-[1.15vw]"}`}>
