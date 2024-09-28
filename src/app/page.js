@@ -173,6 +173,7 @@ export default function Home() {
           src={luckyBlock}
           alt="Description"
           className="w-10 h-10"
+          unoptimized
         />
         <div className="text-box-lucky font-pixelify text-xs md:text-base w-[100px] sm:w-[200px]">Interact with <span className='text-banana-yellow font-bold'>yellow</span> objects for a surprise!</div>
       </div>
@@ -204,8 +205,9 @@ export default function Home() {
             <div className="relative w-full min-w-[200px] min-h-[200px]">
               <Image
                 src={dinosaur}
-                layout="fill"
+                fill
                 objectFit="contain"
+                unoptimized
               />
             </div>
           )
@@ -246,7 +248,7 @@ export default function Home() {
         <span className={`text-lg xl:text-[1.5vw] ${isMobile ? '-mt-12' : 'sm:mt-6'}`}>
           A keyboard enthusiast, foodie, photographer, and gamer who is passionate about impactful software and finding&nbsp;
           <span className="text-banana-yellow font-semibold banana-hover relative">banana
-            <Image src={banana} alt="Banana image" class="pop-up-image" />
+            <Image src={banana} alt="Banana image" class="pop-up-image" style={{ imageRendering: 'pixelated' }} unoptimized/>
           </span>-flavored snacks.
         </span>
 
@@ -294,11 +296,11 @@ export default function Home() {
               className="absolute inset-y-0 right-0 w-1/2 cursor-pointer z-20"
               onClick={() => handleClick('right')}
             />
-
-
             <Image
               src={labelSign}
               alt="Label Sign"
+              style={{ imageRendering: 'pixelated' }}
+              unoptimized
             />
             <div className="absolute top-[47%] left-1/2 transform -translate-x-1/2 -translate-y-[60%] sm:-translate-y-1/2">
               <span className={`font-pixelify ${isMobile ? "text-xs" : "text-[2vw]"} tracking-widest`}>
@@ -317,34 +319,36 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 key={index}
-                className={`${index === 0 ? 'sm:col-span-2 col-span-1' : 'col-span-1'} relative rounded-lg shadow-md group`}
+                className={`${index === 0 ? 'sm:col-span-2 col-span-1' : 'col-span-1'} relative bg-none group`}
               >
                 {/* Project Image */}
                 {isMobile ?
                   (<Image
-                    src={smallBorder}
+                    src={index === 0 ? bigBorder : smallBorder}
                     alt={project.title}
-                    layout="responsive"
                     width={500}
                     height={200}
+                    style={{ width: '100%', height: 'auto', imageRendering: 'pixelated'}} // To ensure it behaves responsively
+                    unoptimized
                   />)
                   :
                   (<Image
                     src={index === 0 ? bigBorder : smallBorder}
                     alt={project.title}
-                    layout="responsive"
+                    style={{ width: '100%', height: 'auto', imageRendering: 'pixelated' }} // To ensure it behaves responsively
                     width={500}
                     height={200}
+                    unoptimized
                   />)
                 }
 
                 {/* Hover Effect Wrapper */}
                 <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 cursor-pointer z-10">
                   {/* Corner Images */}
-                  <Image src={topLeftSelect} alt="Top Left" className={`absolute ${isMobile ? "top-[-14px] left-[-12px] w-6 h-6" : "top-[-18px] left-[-16px] w-10 h-10"} animate-out-in-top-left`} style={{ imageRendering: 'pixelated' }}/>
-                  <Image src={topRightSelect} alt="Top Right" className={`absolute ${isMobile ? "top-[-14px] right-[-12px] w-6 h-6" : "top-[-18px] right-[-16px] w-10 h-10"} animate-out-in-top-right`} style={{ imageRendering: 'pixelated' }}/>
-                  <Image src={bottomLeftSelect} alt="Bottom Left" className={`absolute ${isMobile ? "bottom-[-14px] left-[-12px] w-6 h-6" : "bottom-[-18px] left-[-16px] w-10 h-10"} animate-out-in-bottom-left`} style={{ imageRendering: 'pixelated' }}/>
-                  <Image src={bottomRightSelect} alt="Bottom Right" className={`absolute ${isMobile ? "bottom-[-14px] right-[-12px] w-6 h-6" : "bottom-[-18px] right-[-16px] w-10 h-10"} animate-out-in-bottom-right`} style={{ imageRendering: 'pixelated' }}/>
+                  <Image src={topLeftSelect} alt="Top Left" className={`absolute ${isMobile ? "top-[-14px] left-[-12px] w-6 h-6" : "top-[-18px] left-[-16px] w-10 h-10"} animate-out-in-top-left`} style={{ imageRendering: 'pixelated' }} unoptimized/>
+                  <Image src={topRightSelect} alt="Top Right" className={`absolute ${isMobile ? "top-[-14px] right-[-12px] w-6 h-6" : "top-[-18px] right-[-16px] w-10 h-10"} animate-out-in-top-right`} style={{ imageRendering: 'pixelated' }} unoptimized/>
+                  <Image src={bottomLeftSelect} alt="Bottom Left" className={`absolute ${isMobile ? "bottom-[-14px] left-[-12px] w-6 h-6" : "bottom-[-18px] left-[-16px] w-10 h-10"} animate-out-in-bottom-left`} style={{ imageRendering: 'pixelated' }} unoptimized/>
+                  <Image src={bottomRightSelect} alt="Bottom Right" className={`absolute ${isMobile ? "bottom-[-14px] right-[-12px] w-6 h-6" : "bottom-[-18px] right-[-16px] w-10 h-10"} animate-out-in-bottom-right`} style={{ imageRendering: 'pixelated' }} unoptimized/>
                 </div>
 
                 {/* Project Details */}
@@ -353,15 +357,17 @@ export default function Home() {
                     (<Image
                       src={project.small_image}
                       className="shadow-custom border-[3px] border-gray-800"
+                      unoptimized
                     />)
                     :
                     (<Image
                       src={index === 0 ? project.large_image : project.small_image}
                       className="shadow-custom border-[3px] border-gray-800"
+                      unoptimized
                     />)
                   }
                   <h1 className="text-xl lg:text-[1.5vw] font-semibold mt-2 overflow-hidden">{project.title}</h1>
-                  <p className={`z-40 ${isMobile ? "text-xs" : "text-[1.5vw]"} lg:text-[1vw] leading-none sm:leading-normal xl:leading-5 text-gray-700 project-description`}>
+                  <p className={`z-40 ${isMobile ? "text-xs" : "text-[1.5vw]"} lg:text-[1vw] leading-[none] sm:leading-[normal] xl:leading-6 lg:pt-1 text-gray-700 project-description`}>
                     {project.description}
                   </p>
                 </div>
@@ -390,8 +396,9 @@ export default function Home() {
           >
             <Image
               src={longLabelSign}
-              
               alt="Label Sign"
+              style={{ imageRendering: 'pixelated' }}
+              unoptimized
             />
 
             <div className="absolute top-[47%] left-1/2 transform -translate-x-1/2 -translate-y-[60%] sm:-translate-y-1/2">
@@ -407,6 +414,8 @@ export default function Home() {
                 <Image
                   src={pikmin} // Replace with your image source
                   alt="pikmin"
+                  style={{ imageRendering: 'pixelated' }}
+                unoptimized
                 />
               </div>
             )}
@@ -421,13 +430,15 @@ export default function Home() {
                 <div key={index} className={`relative ${isMobile ? "h-[4vw] w-[70vw]" : "h-[4vw]"} group hover:text-black mb-4 cursor-pointer`}>
                   <Image
                     src={experienceGray}
-                    layout="responsive"
+                    style={{ width: '100%', height: 'auto', imageRendering: 'pixelated' }} // To ensure it behaves responsively
                     className="absolute transition-opacity duration-500 ease-in-out"
+                    unoptimized
                   />
                   <Image
                     src={experienceYellow}
-                    layout="responsive"
+                    style={{ width: '100%', height: 'auto', imageRendering: 'pixelated' }} // To ensure it behaves responsively
                     className="absolute transition-opacity duration-500 ease-in-out opacity-0 group-hover:opacity-100"
+                    unoptimized
                   />
 
                   <div className={`absolute inset-0 flex flex-row items-center space-x-1 sm:space-x-3 z-10 ${isMobile ? "top-[50%]" : "top-[45%]"} left-3 transform -translate-y-[30%] sm:-translate-y-1/2`}>
@@ -436,8 +447,11 @@ export default function Home() {
                       alt={`Icon ${index}`}
                       style={{ imageRendering: 'pixelated' }}
                       className={`aspect-square z-10 ${(experience.company == "IBM" && !isMobile) ? "mb-[8px] w-[4.25vw] h-[4.5vw]" : "w-[4vw] h-[4vw]"} ${isMobile ? "mb-0" : "mb-6"}`}
-                      layout="fixed"
+                      width={50} 
+                      height={50} 
+                      unoptimized
                     />
+
                     <div className={`flex flex-row w-full items-center justify-between font-light ${isMobile ? "text-[7px]" : "text-[1.15vw]"}`}>
                       <div>
                         <span className="font-semibold">{experience.company}</span>

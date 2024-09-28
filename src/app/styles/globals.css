@@ -920,8 +920,8 @@ iframe {
 
 .content {
   display: flex;
-  align-content: center;
-  justify-content: center;
+  align-content: start;
+  justify-content: start;
 }
 
 .text_shadows {
@@ -930,10 +930,9 @@ iframe {
     6px 6px 0 #F9A825, /* Yellow-orange */
     9px 9px 0 #FF8F00, /* Orange */
     12px 12px 0 #FF6F00; /* Bright orange */
-  /* font-family: pixelify, sans-serif; */
   font-weight: 400;
   text-transform: uppercase;
-  font-size: calc(2rem + 8vw);
+  /* font-size: calc(2rem + 8vw); */
   text-align: center;
   margin: 0;
   color: #FBBC05; /* Primary color */
@@ -1019,3 +1018,5 @@ iframe {
     transform: translate(0px, 0px);
   }
 }
+
+
