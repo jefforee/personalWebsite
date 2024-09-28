@@ -118,7 +118,7 @@ export default function Home() {
     setClickCount(prevCount => prevCount + 1);
     setShakeClass(`shake-shake${Math.min(clickCount + 1, 5)}`);
 
-    setTimeout(() => setShakeClass(''), 600); // Reset shake class after animation
+    setTimeout(() => setShakeClass(''), 600); 
   };
 
   const handleClick = (direction) => {
@@ -192,9 +192,9 @@ export default function Home() {
             </span>
             <span className="leading-none	text-[9vw] font-semibold flex flex-row items-end">
               Jeffrey
-              <div class="flex mb-2 md:mb-3 lg:mb-4 cursor-pointer">
-                <span class="heartbeat"></span>
-                <span class="dot"></span>
+              <div className="flex mb-2 md:mb-3 lg:mb-4 cursor-pointer">
+                <span className="heartbeat"></span>
+                <span className="dot"></span>
               </div>
             </span>
           </div>
@@ -248,7 +248,7 @@ export default function Home() {
         <span className={`text-lg xl:text-[1.5vw] ${isMobile ? '-mt-12' : 'sm:mt-6'}`}>
           A keyboard enthusiast, foodie, photographer, and gamer who is passionate about impactful software and finding&nbsp;
           <span className="text-banana-yellow font-semibold banana-hover relative">banana
-            <Image src={banana} alt="Banana image" class="pop-up-image" style={{ imageRendering: 'pixelated' }} unoptimized/>
+            <Image src={banana} alt="Banana image" className="pop-up-image" style={{ imageRendering: 'pixelated' }} unoptimized/>
           </span>-flavored snacks.
         </span>
 
@@ -256,15 +256,11 @@ export default function Home() {
 
         <span className="self-start text-lg xl:text-[1.5vw] mt-4 "
         >
-          Currently a software engineer at <span class="text-banana-yellow font-semibold animated-text cursor-pointer">
+          Currently a software engineer at <span className="text-banana-yellow font-semibold animated-text cursor-pointer">
             <span>A</span><span>m</span><span>a</span><span>z</span><span>o</span><span>n</span>
           </span>.
         </span>
         <a href="#project-start" className="self-start text-xl xl:text-[1.5vw] font-pixelify mt-10 jumping-text cursor-pointer" onClick={() => setHasStarted(true)}>
-          {/* <span class="arrow">&gt;</span><span></span> */}
-          {/* <span>P</span><span>R</span><span>E</span><span>S</span><span>S</span>
-          <span>&nbsp;</span>
-          <span>S</span><span>T</span><span>A</span><span>R</span><span>T</span> */}
           <span className='blinking-text'>&gt; PRESS START</span>
         </a>
 

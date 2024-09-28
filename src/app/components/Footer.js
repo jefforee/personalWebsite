@@ -34,16 +34,16 @@ export default function Footer() {
                 <div className='flex flex-col justify-end items-end'>
                     <div className="image-container">
                         <div className="image-wrapper">
-                            <Image src={YellowBasket} alt="Yellow Basket" class="image" style={{ imageRendering: 'pixelated' }}/>
-                            <div class="description">Basket</div>
+                            <Image src={YellowBasket} alt="Yellow Basket" className="image" style={{ imageRendering: 'pixelated' }}/>
+                            <div className="description">Basket</div>
                         </div>
                         <div className="image-wrapper">
-                            <Image src={YellowChips} alt="Yellow Chips" class="image" style={{ imageRendering: 'pixelated' }} />
-                            <div class="description">Chips</div>
+                            <Image src={YellowChips} alt="Yellow Chips" className="image" style={{ imageRendering: 'pixelated' }} />
+                            <div className="description">Chips</div>
                         </div>
                         <div className="image-wrapper">
-                            <Image src={RubberDuck} alt="Rubber Duck" class="image" style={{ imageRendering: 'pixelated' }} />
-                            <div class="description">Duck</div>
+                            <Image src={RubberDuck} alt="Rubber Duck" className="image" style={{ imageRendering: 'pixelated' }} />
+                            <div className="description">Duck</div>
                         </div>
                     </div>
 

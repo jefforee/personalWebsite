@@ -27,7 +27,7 @@ export default function Navbar() {
                 <div className="font-pixelify font-light text-lg flex flex-row justify-start md:justify-center items-center gap-4">
                     {/* <button type="button" onClick={() => router.push('/')} className="font-medium text-xl mr-8 pt-2 md:pt-0">Jeffrey Huang</button> */}
                     <a href="/" className="flip-animate mr-8" >
-                        Jeffrey&nbsp;<span class="flip-text" data-hover="Huang">Huang</span>
+                        Jeffrey&nbsp;<span className="flip-text" data-hover="Huang">Huang</span>
                     </a>
 
                     <div className='hidden md:flex flex-row gap-4 items-center justify-center'>

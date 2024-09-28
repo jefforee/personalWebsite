@@ -686,10 +686,25 @@ a {
 
 }
 
+/* Description styling */
+.inv-description {
+  position: absolute; /* Positions the description relative to the wrapper */
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s ease; /* Smooth transition */
+  background-color: #C0CBDC;
+  padding-left: 2px;
+  padding-right: 2px;
+  border-radius: 5px;
+  
+}
+
+
 /* Show description on hover */
-.image-wrapper:hover .description {
+.image-wrapper:hover .description, .image-wrapper:hover .inv-description {
   opacity: 1; /* Show description */
 }
+
+
 
 @keyframes shake1 {
   0% {
