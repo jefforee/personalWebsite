@@ -79,7 +79,7 @@ export default function About() {
             description: "Sleeping",
             image: profilePic,
             yoe: "??",
-            page: "1",
+            page: "0",
             items: [],
 
         },
@@ -88,7 +88,7 @@ export default function About() {
             description: "Film-Look",
             image: photographer,
             yoe: "3",
-            page: "2",
+            page: "1",
             items: [
                 { item_image: lens, item_name: "Lens" },
                 { item_image: microSD, item_name: "MicroSD" },
@@ -105,7 +105,7 @@ export default function About() {
             description: "Eat. Sleep. Gym.",
             image: gym,
             yoe: "4",
-            page: "3",
+            page: "2",
             items: [
                 { item_image: dumbbell, item_name: "Dumbbell" },
                 { item_image: chicken, item_name: "Chicken" },
@@ -124,7 +124,7 @@ export default function About() {
             description: "Chomp. Nom. Gulp.",
             image: foodie,
             yoe: "∞",
-            page: "4",
+            page: "3",
             items: [
                 { item_image: cereal, item_name: "Cocoa Puffs" },
                 { item_image: jam, item_name: "Strawberry Jam" },
@@ -145,7 +145,7 @@ export default function About() {
             description: "Hardstuck Diamond",
             image: gamer,
             yoe: "16",
-            page: "5",
+            page: "4",
             items: [
                 { item_image: boots, item_name: "Boots" },
                 { item_image: potion, item_name: "Health Potion" },
@@ -422,11 +422,11 @@ export default function About() {
                                     className='w-[20px] sm:w-[3vw] aspect-square rounded-sm sm:rounded-md border-2 border-black'
                                     unoptimized
                                 ></Image>
-                                <Image src={confirm} className='h-[10px] sm:h-[1.5vw] w-auto transition-transform transform hover:scale-110 cursor-pointer'
+                                <Image src={confirm} className='h-[10px] sm:h-[1.5vw] w-auto transition-transform transform active:scale-125 cursor-pointer'
                                     style={{ imageRendering: 'pixelated' }}
                                     unoptimized
                                 ></Image>
-                                <Image src={cancel} className='h-[10px] sm:h-[1.5vw] w-auto transition-transform transform hover:scale-110 cursor-pointer'
+                                <Image src={cancel} className='h-[10px] sm:h-[1.5vw] w-auto transition-transform transform active:scale-125 cursor-pointer'
                                     style={{ imageRendering: 'pixelated' }}
                                     unoptimized
                                 ></Image>
@@ -435,21 +435,24 @@ export default function About() {
                     </div>
 
                     {/* YOE */}
-                    <div className='bg-[#ECD6AB] border-2 border-black rounded-md p-1 '>
-                        <div className='flex flex-row items-center bg-[#C28569] justify-center px-3 py-1 sm:py-2 rounded-md space space-x-1 sm:space-x-2'>
+                    <div className='bg-[#ECD6AB] border-2 border-black rounded-md p-1'>
+                        <div className='flex flex-row items-center bg-[#C28569] justify-center px-3 py-1 sm:py-2 rounded-md space space-x-1 sm:space-x-2 '>
                             <Image
                                 src={sandtimer}
                                 width={100}
-                                className='w-[1.75vw] h-auto'
+                                className='w-[1.75vw] h-auto transition-transform duration-300 hover:rotate-180 cursor-pointer'
                                 style={{ imageRendering: 'pixelated' }}
                                 alt="Inventory Plant"
                                 unoptimized
                             />
 
                             {/* Label */}
-                            <span className='font-semibold text-[1.75vw] pl-1 sm:pl-2 '>{selectedRole ? selectedRole.yoe : identityInfo[0].yoe} Years</span>
+                            <span className='font-semibold text-[1.75vw] pl-1 sm:pl-2'>
+                                {selectedRole ? selectedRole.yoe : identityInfo[0].yoe} Years
+                            </span>
                         </div>
                     </div>
+
                 </div>
 
                 {/* Right Side */}
@@ -484,7 +487,7 @@ export default function About() {
                                 </div>
                             ))}
 
-                            <span className='mt-8 ml-6 text-xs sm:text-[1.5vw] '>{selectedRole.page}/{identityInfo.length}</span>
+                            <span className='mt-8 ml-6 text-xs sm:text-[1.5vw] '>{selectedRole.page}/{identityInfo.length - 1}</span>
                         </div>
 
                     </div>

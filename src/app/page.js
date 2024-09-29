@@ -223,7 +223,7 @@ export default function Home() {
               // />
               <div className="iframe-container">
                 <iframe
-                  src="https://mhasbini.com/miscs/react-chrome-dino-demo/index.html"
+                  src="https://jefforee.github.io/dinosaur-game/"
                   style={{ width: '100%', height: '100%', border: 'none' }}
                   title="Embedded HTML"
                   scrolling='no'
