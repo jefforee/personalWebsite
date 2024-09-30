@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { useHasStarted } from '../contexts/HasStartedContext';
 import Image from 'next/image';
 import Typewriter from 'typewriter-effect';
@@ -8,6 +8,9 @@ import orangeJuice from "../../../public/images/about/orange_juice.png"
 import yellowSoda from "../../../public/images/about/soft_drink_yellow.png"
 import profilePic from "../../../public/images/about/jeffPFPpixel.png"
 import realPicFull from "../../../public/images/about/realPfpFull.png"
+import dialogueBox from "../../../public/images/about/dialogueBox.png"
+import nextOption from "../../../public/images/about/nextOption.png"
+import FadeInOnScroll from '../components/FadeInOnScroll';
 
 import computerGif from "../../../public/images/about/computer.gif"
 
@@ -26,6 +29,7 @@ import confirm from "../../../public/images/inventory/confirm.png"
 import cancel from "../../../public/images/inventory/cancel.png"
 import sandtimer from "../../../public/images/inventory/sandtimer.png"
 import basket from "../../../public/images/inventory/basket.png"
+
 
 import dumbbell from "../../../public/images/inventory/gym/dumbbell.png"
 import chicken from "../../../public/images/inventory/gym/Chicken.png"
@@ -164,6 +168,23 @@ export default function About() {
     const [isHovered, setIsHovered] = useState(false);
     const [selectedRole, setSelectedRole] = useState(identityInfo[0]);
     const { setHasStarted } = useHasStarted();
+    const [startTyping, setStartTyping] = useState(false); // State to control typing
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+
+    const dialogues = [
+        "Hello! 'My name is Jeff' and this is where I am most of the time... the internet. I am currently a software engineer at Amazon and I... code a lot.",
+        "I loveeee making mechanical keyboards! But it's too expensive...",
+        "I snap, I gym, I eat, I game. Quite the simple life. Choose a version of me below!",
+        "Did you notice all the yellow on the site? My last name 黄 (huang) means 'yellow' in Chinese!",
+        "I will be taking my leave now. Ribbit ribbit."
+
+    ];
+
+
+    const handleNext = () => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % dialogues.length);
+    };
 
     useEffect(() => {
         setHasStarted(true);
@@ -191,7 +212,7 @@ export default function About() {
                     </div>
 
                     {/* Name */}
-                    <section className="xl:px-8 py-2 text-banana-yellow">
+                    <section className="xl:px-8 py-1 text-banana-yellow">
                         <FlipLink href="#" isHovered={isHovered} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
                             {isHovered ? "Huang 黄" : "Jeffrey"}
                         </FlipLink>
@@ -254,12 +275,57 @@ export default function About() {
                 </div>
 
 
-
             </div>
+
+
+            {/* Dialogue */}
+            <FadeInOnScroll
+                classes='relative flex justify-center mt-20'
+                setStartTyping={setStartTyping}
+            >
+                <Image
+                    src={dialogueBox}
+                    style={{ imageRendering: 'pixelated' }}
+                    className='w-[90%]'
+                    alt="Dialogue Box"
+                    unoptimized
+                />
+
+                <Image
+                    src={nextOption}
+                    style={{ imageRendering: 'pixelated' }}
+                    className="w-[2vw] absolute top-[80%] right-[10%] cursor-pointer transition-transform duration-300 transform hover:scale-110 hover:animate-pulse z-20"
+                    alt="Next Option"
+                    unoptimized
+                    onClick={handleNext}
+                />
+
+                <div className="font-pixelify text-[1.25vw] absolute top-[95%] left-[12%] transform -translate-y-1/2 w-[80%] h-[100%]">
+                    {startTyping &&
+                        <Typewriter
+                            options={{
+                                delay: 20,
+                                // autoStart: true,
+                                loop: false,
+                                cursor: ""
+                            }}
+                            onInit={(typewriter) => {
+                                typewriter
+                                    .typeString(dialogues[currentIndex])
+                                    .start();
+                            }}
+                            key={currentIndex}
+                        />
+                    }
+                </div>
+            </FadeInOnScroll>
+
+
+            {/* Choose your jeff */}
             <div className='flex flex-col justify-center items-center mt-4 sm:mt-24'>
                 <span className='font-pixelify text-[2vw]'>
                     <span className='text-banana-yellow'>&lt;</span>
-                    SELECT YOUR
+                    CHOOSE YOUR
                     <span
                         onClick={() => {
                             setSelectedIndex(-1);
@@ -377,6 +443,8 @@ export default function About() {
                     ))}
                 </div>
             </div>
+
+
 
 
             <div className='flex flex-row items-stretch justify-center font-pixelify mt-4 sm:mt-28 gap-x-3'>
