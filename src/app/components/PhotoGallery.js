@@ -30,8 +30,6 @@ const photos = [
     { src: image10, width: 250, height: 300, top: "60%", left: "24%", objectPosition: "100% 50%", link: "https://www.instagram.com/p/C8sKeXqy4ns/?img_index=1" },
     { src: image11, width: 240, height: 160, top: "70%", left: "47%", objectPosition: "100% 50%", link: "https://www.instagram.com/p/C8kcvyvS5de/?img_index=1" },
     { src: image20, width: 140, height: 100, top: "71%", left: "68%", objectPosition: "100% 50%", link: "https://www.instagram.com/p/C8kcvyvS5de/?img_index=1" },
-
-
 ];
 
 export default function PhotoGallery() {
@@ -39,18 +37,13 @@ export default function PhotoGallery() {
     const [photoDimensions, setPhotoDimensions] = useState([]);
 
     useEffect(() => {
-        // Function to update mobile state based on screen width
         const updateIsMobile = () => {
             setIsMobile(window.innerWidth <= 1024);
         };
 
-        // Set initial mobile state
         updateIsMobile();
-
-        // Add event listener for resize
         window.addEventListener("resize", updateIsMobile);
 
-        // Cleanup event listener on component unmount
         return () => window.removeEventListener("resize", updateIsMobile);
     }, []);
 
@@ -82,21 +75,22 @@ export default function PhotoGallery() {
                     {photoDimensions.map((photo, index) => (
                         <div
                             key={index}
-                            className="transition-transform duration-300 ease-in-out hover:scale-105 relative"
+                            className="relative"
                             style={{
                                 boxShadow: "5px 5px 15px rgba(0, 0, 0, 0.2)",
                                 border: "solid 2px #501B04",
                                 overflow: "hidden",
-                                aspectRatio: photo.width > photo.height ? "10/11.5" : "14/16", // Adjust based on orientation
+                                aspectRatio: photo.width > photo.height ? "10/11.5" : "14/16",
                             }}
                         >
                             <a href={photos[index].link} target="_blank" rel="noopener noreferrer">
                                 <Image
                                     src={photo.src}
                                     alt={`Photo ${index}`}
-                                    fill // Fill the parent container
+                                    fill
                                     style={{
-                                        objectFit: "cover", // Keep the image aspect ratio while covering the container
+                                        objectFit: "cover",
+                                        transition: "transform 0.2s ease", // Shortened transition duration with 'ease'
                                     }}
                                 />
                             </a>
@@ -108,12 +102,12 @@ export default function PhotoGallery() {
                     {photos.map((photo, index) => (
                         <div
                             key={index}
-                            className="absolute transition-transform duration-300 ease-in-out hover:scale-105"
+                            className="absolute"
                             style={{
                                 top: photo.top,
                                 left: photo.left,
-                                width: `${photo.width}px`, // Use template literals correctly
-                                height: `${photo.height}px`, // Use template literals correctly
+                                width: `${photo.width}px`,
+                                height: `${photo.height}px`,
                                 boxShadow: "5px 5px 15px rgba(0, 0, 0, 0.5)",
                                 border: "solid 4px #501B04",
                                 overflow: "hidden",
@@ -122,13 +116,14 @@ export default function PhotoGallery() {
                             <a href={photo.link} target="_blank" rel="noopener noreferrer">
                                 <Image
                                     src={photo.src}
-                                    alt={`Photo ${index}`} // Corrected the alt text
+                                    alt={`Photo ${index}`}
                                     fill
                                     style={{
                                         objectFit: "cover",
-                                        objectPosition: photo.objectPosition, 
-                                        // transition: "transform 0.3s ease-in-out",
-                                    }} 
+                                        objectPosition: photo.objectPosition,
+                                        transition: "transform 0.2s ease", // Shortened transition duration with 'ease'
+                                    }}
+                                    className="hover:scale-105" // Scale image slightly on hover
                                 />
                             </a>
                         </div>
