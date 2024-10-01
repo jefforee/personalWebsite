@@ -903,8 +903,8 @@ a {
 
 .iframe-container {
   position: relative;
-  width: 100vw; /* Full width */
-  height: 20vh; /* Adjust height as needed */
+  width: 100vw; 
+  height: 20vh; 
 }
 
 iframe {

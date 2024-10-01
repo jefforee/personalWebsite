@@ -107,10 +107,10 @@ export default function Home() {
           ([entry]) => {
               if (entry.isIntersecting) {
                   setLoadIframe(true);
-                  observer.disconnect(); // Stop observing once the iframe has loaded
+                  observer.disconnect(); 
               }
           },
-          { threshold: 0.1 } // Adjust this threshold as necessary
+          { threshold: 0.1 } 
       );
 
       if (iframeRef.current) {
@@ -134,12 +134,10 @@ export default function Home() {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial check
+    handleScroll(); 
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-
 
 
   const handleShakingClick = () => {
@@ -176,16 +174,10 @@ export default function Home() {
 
     };
 
-    // Set initial image source
     updateImageSrc();
-    
-    // console.log(window.innerWidth)
-    // console.log(isMobile)
 
-    // Add event listener for resize
     window.addEventListener('resize', updateImageSrc);
 
-    // Cleanup event listener on component unmount
     return () => window.removeEventListener('resize', updateImageSrc);
   }, []);
 
@@ -253,7 +245,6 @@ export default function Home() {
                     title="Embedded HTML"
                     scrolling='no'
                     className='cursor-crosshair'
-                    sandbox="allow-same-origin allow-scripts allow-popups" // Optional
                 />
             ) : (
                 <div className="overlay">
@@ -353,14 +344,14 @@ export default function Home() {
                     alt={project.title}
                     width={500}
                     height={200}
-                    style={{ width: '100%', height: 'auto', imageRendering: 'pixelated' }} // To ensure it behaves responsively
+                    style={{ width: '100%', height: 'auto', imageRendering: 'pixelated' }} 
                     unoptimized
                   />)
                   :
                   (<Image
                     src={index === 0 ? bigBorder : smallBorder}
                     alt={project.title}
-                    style={{ width: '100%', height: 'auto', imageRendering: 'pixelated' }} // To ensure it behaves responsively
+                    style={{ width: '100%', height: 'auto', imageRendering: 'pixelated' }} 
                     width={500}
                     height={200}
                     unoptimized
@@ -437,7 +428,7 @@ export default function Home() {
             {(clickCount >= 5) && (
               <div className="absolute top-[-170%] left-1/2 transform -translate-x-1/2 crawling-image">
                 <Image
-                  src={pikmin} // Replace with your image source
+                  src={pikmin} 
                   alt="pikmin"
                   style={{ imageRendering: 'pixelated' }}
                   unoptimized
@@ -455,13 +446,13 @@ export default function Home() {
                 <a href={experience.link} target="_blank" rel="noopener noreferrer" key={index} className={`relative ${isMobile ? "h-[4vw] w-[70vw]" : "h-[4vw]"} group hover:text-black mb-4 cursor-pointer`}>
                     <Image
                       src={experienceGray}
-                      style={{ width: '100%', height: 'auto', imageRendering: 'pixelated' }} // To ensure it behaves responsively
+                      style={{ width: '100%', height: 'auto', imageRendering: 'pixelated' }}
                       className="absolute transition-opacity duration-500 ease-in-out"
                       unoptimized
                     />
                     <Image
                       src={experienceYellow}
-                      style={{ width: '100%', height: 'auto', imageRendering: 'pixelated' }} // To ensure it behaves responsively
+                      style={{ width: '100%', height: 'auto', imageRendering: 'pixelated' }} 
                       className="absolute transition-opacity duration-500 ease-in-out opacity-0 group-hover:opacity-100"
                       unoptimized
                     />

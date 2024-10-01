@@ -174,7 +174,7 @@ export default function About() {
     const [isHovered, setIsHovered] = useState(false);
     const [selectedRole, setSelectedRole] = useState(identityInfo[0]);
     const { setHasStarted } = useHasStarted();
-    const [startTyping, setStartTyping] = useState(false); // State to control typing
+    const [startTyping, setStartTyping] = useState(false); 
     const [currentIndex, setCurrentIndex] = useState(0);
 
 
@@ -237,8 +237,8 @@ export default function About() {
                                     }}
                                     options={{
                                         autoStart: true,
-                                        loop: true,   // Ensures the text types only once
-                                        delay: 80,     // Typing speed
+                                        loop: true,   
+                                        delay: 80,     
                                     }}
                                 />
                             </div>
@@ -253,7 +253,7 @@ export default function About() {
                             imageRendering: 'pixelated',
                             transition: 'opacity 0.5s ease',
                         }}
-                        className={`w-[25vw] h-[25vw] max-w-xl border-[5px] border-black absolute top-0 right-5 opacity-100 group-hover:opacity-0`} // Change opacity on hover
+                        className={`w-[25vw] h-[25vw] max-w-xl border-[5px] border-black absolute top-0 right-5 opacity-100 group-hover:opacity-0`} 
                         alt="Profile Picture"
                         unoptimized
                     />
@@ -264,7 +264,7 @@ export default function About() {
                             transition: 'opacity 0.5s ease',
                             objectFit: 'cover'
                         }}
-                        className={`w-[25vw] h-[25vw] max-w-xl border-[5px] border-black absolute top-0 right-5 opacity-0 group-hover:opacity-100`} // Change opacity on hover
+                        className={`w-[25vw] h-[25vw] max-w-xl border-[5px] border-black absolute top-0 right-5 opacity-0 group-hover:opacity-100`} 
                         alt="Real Profile Picture"
                         unoptimized
                     />
@@ -301,7 +301,6 @@ export default function About() {
                         <Typewriter
                             options={{
                                 delay: 20,
-                                // autoStart: true,
                                 loop: false,
                                 cursor: ""
                             }}
@@ -348,10 +347,9 @@ export default function About() {
                             onClick={() => {
                                 setSelectedIndex(index);
 
-                                // Find the corresponding role in identityInfo based on the label
                                 const identityItem = identityInfo.find(info => info.role === item.label);
                                 if (identityItem) {
-                                    setSelectedRole(identityItem); // Set selectedRole to the role from identityInfo
+                                    setSelectedRole(identityItem); 
                                 }
                             }}
                         >
@@ -406,28 +404,28 @@ export default function About() {
                                 <div className="absolute inset-0 flex justify-center items-center cursor-default z-20">
                                     {/* Original colored images */}
                                     <Image
-                                        src={topLeftSelect} // Replace with your original image path
+                                        src={topLeftSelect} 
                                         alt="Top Left"
                                         className={`absolute top-[-8px] left-[-6px] sm:top-[-14px] sm:left-[-12px] w-3 h-3 sm:w-6 sm:h-6`}
                                         style={{ imageRendering: 'pixelated' }}
                                         unoptimized
                                     />
                                     <Image
-                                        src={topRightSelect} // Replace with your original image path
+                                        src={topRightSelect} 
                                         alt="Top Right"
                                         className={`absolute top-[-8px] right-[-6px] sm:top-[-14px] sm:right-[-12px] w-3 h-3 sm:w-6 sm:h-6`}
                                         style={{ imageRendering: 'pixelated' }}
                                         unoptimized
                                     />
                                     <Image
-                                        src={bottomLeftSelect} // Replace with your original image path
+                                        src={bottomLeftSelect} 
                                         alt="Bottom Left"
                                         className={`absolute bottom-[10px] left-[-6px] sm:bottom-[32px] sm:left-[-12px] w-3 h-3 sm:w-6 sm:h-6`}
                                         style={{ imageRendering: 'pixelated' }}
                                         unoptimized
                                     />
                                     <Image
-                                        src={bottomRightSelect} // Replace with your original image path
+                                        src={bottomRightSelect} 
                                         alt="Bottom Right"
                                         className={`absolute bottom-[10px] right-[-6px] sm:bottom-[32px] sm:right-[-12px] w-3 h-3 sm:w-6 sm:h-6`}
                                         style={{ imageRendering: 'pixelated' }}
