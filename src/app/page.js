@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import labelSign from "../../public/images/home/label_sign.png"
 import longLabelSign from "../../public/images/experiences/long_label_sign.png"
@@ -98,6 +98,31 @@ export default function Home() {
   const { hasStarted, setHasStarted } = useHasStarted();
 
   const [isFooterVisible, setIsFooterVisible] = useState(false);
+
+  const iframeRef = useRef(null);
+  const [loadIframe, setLoadIframe] = useState(false);
+
+  useEffect(() => {
+      const observer = new IntersectionObserver(
+          ([entry]) => {
+              if (entry.isIntersecting) {
+                  setLoadIframe(true);
+                  observer.disconnect(); // Stop observing once the iframe has loaded
+              }
+          },
+          { threshold: 0.1 } // Adjust this threshold as necessary
+      );
+
+      if (iframeRef.current) {
+          observer.observe(iframeRef.current);
+      }
+
+      return () => {
+          if (iframeRef.current) {
+              observer.unobserve(iframeRef.current);
+          }
+      };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -220,28 +245,25 @@ export default function Home() {
           )
             :
             (
-
-              // <iframe
-              //   src="https://mhasbini.com/miscs/react-chrome-dino-demo/index.html"
-              //   style={{ width: '100vw', height: '20vh', border: 'none' }}
-              //   title="Embedded HTML"
-              //   scrolling='no'
-              //   className='cursor-crosshair'
-              // />
-              <div className="iframe-container">
+              <div className="iframe-container" ref={iframeRef}>
+            {loadIframe ? (
                 <iframe
-                  src="https://jefforee.github.io/dinosaur-game/"
-                  style={{ width: '100%', height: '100%', border: 'none' }}
-                  title="Embedded HTML"
-                  scrolling='no'
-                  className='cursor-crosshair'
+                    src="https://jefforee.github.io/dinosaur-game/"
+                    style={{ width: '100%', height: '100%', border: 'none' }}
+                    title="Embedded HTML"
+                    scrolling='no'
+                    className='cursor-crosshair'
+                    sandbox="allow-same-origin allow-scripts allow-popups" // Optional
                 />
+            ) : (
                 <div className="overlay">
-                  <p>Press Spacebar to Start</p>
+                    <p>Loading game...</p>
                 </div>
-              </div>
-
-
+            )}
+            <div className="overlay mt-1">
+                <p>Press Spacebar to Start</p>
+            </div>
+        </div>
 
             )
           }
