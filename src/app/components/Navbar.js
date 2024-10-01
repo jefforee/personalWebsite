@@ -63,14 +63,23 @@ export default function Navbar() {
 
                     {/* Icons row for medium and larger screens */}
                     <div className="hidden md:flex md:flex-row md:gap-4 md:items-center">
-                        <a>
-                            <TbFileCv href="https://drive.google.com/file/d/1Bk07BZNe7QwLKi1MMZFREW3d-MooIDDb/view?usp=sharing" className="w-6 h-6 bounce-button" />
+                        <a href="https://drive.google.com/file/d/1Bk07BZNe7QwLKi1MMZFREW3d-MooIDDb/view"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <TbFileCv className="w-6 h-6 bounce-button" />
                         </a>
-                        <a href="https://www.linkedin.com/in/jeffreyhuang2002/">
+                        <a href="https://www.linkedin.com/in/jeffreyhuang2002/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
 
                             <TbBrandLinkedin className="w-6 h-6 bounce-button" />
                         </a>
-                        <a href="https://github.com/jefforee">
+                        <a href="https://github.com/jefforee"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             <TbBrandGithub className="w-6 h-6 bounce-button" />
                         </a>
                     </div>

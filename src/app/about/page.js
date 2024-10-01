@@ -300,7 +300,7 @@ export default function About() {
                     onClick={handleNext}
                 />
 
-                <div className="font-pixelify text-[1.25vw] absolute top-[95%] left-[12%] transform -translate-y-1/2 w-[80%] h-[100%]">
+                <div className="font-pixelify text-[1.25vw] absolute top-[70%] left-[12%] transform -translate-y-1/2 w-[80%] h-[50%]">
                     {startTyping &&
                         <Typewriter
                             options={{
@@ -515,7 +515,7 @@ export default function About() {
                             />
 
                             {/* Label */}
-                            <span className='font-semibold text-[1.75vw] pl-1 sm:pl-2'>
+                            <span className=' font-semibold text-[1.75vw] pl-1 sm:pl-2'>
                                 {selectedRole ? selectedRole.yoe : identityInfo[0].yoe} Years
                             </span>
                         </div>

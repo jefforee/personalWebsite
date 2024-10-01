@@ -10,6 +10,7 @@ module.exports = {
       fontFamily: {
         degular: ['DegularDemo', 'sans-serif'],
         pixelify: ['Pixelify Sans', 'sans-serif'],
+        p2p: ['"Press Start 2P"', 'system-ui'],
       },
       colors: {
         background: "var(--background)",
