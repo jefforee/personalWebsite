@@ -14,14 +14,6 @@ import image8 from "../../../public/images/play/photos/image8.JPG";
 import image9 from "../../../public/images/play/photos/image9.JPG";
 import image10 from "../../../public/images/play/photos/image10.JPG";
 import image11 from "../../../public/images/play/photos/image11.JPG";
-// import image12 from "../../../public/images/play/photos/image12.JPG";
-// import image13 from "../../../public/images/play/photos/image13.PNG";
-// import image14 from "../../../public/images/play/photos/image14.JPG";
-// import image15 from "../../../public/images/play/photos/image15.JPG";
-// import image16 from "../../../public/images/play/photos/image16.JPG";
-// import image17 from "../../../public/images/play/photos/image17.JPG";
-// import image18 from "../../../public/images/play/photos/image18.JPG";
-// import image19 from "../../../public/images/play/photos/image19.JPG";
 import image20 from "../../../public/images/play/photos/image20.JPG";
 
 // List of images with links
@@ -37,15 +29,6 @@ const photos = [
     { src: image9, width: 140, height: 180, top: "53%", left: "78.5%", objectPosition: "100% 50%", link: "https://www.instagram.com/p/C8XiXffSLbh/?img_index=1" },
     { src: image10, width: 250, height: 300, top: "60%", left: "24%", objectPosition: "100% 50%", link: "https://www.instagram.com/p/C8sKeXqy4ns/?img_index=1" },
     { src: image11, width: 240, height: 160, top: "70%", left: "47%", objectPosition: "100% 50%", link: "https://www.instagram.com/p/C8kcvyvS5de/?img_index=1" },
-    
-    // { src: image12, width: 160, height: 190, top: "73%", left: "69%", objectPosition: "100% 50%", link: "https://www.instagram.com/p/C8kcvyvS5de/?img_index=1" },
-    // { src: image13, width: 120, height: 180, top: "62%", left: "13%", objectPosition: "100% 50%", link: "https://www.instagram.com/p/C8kcvyvS5de/?img_index=1" },
-    // { src: image14, width: 170, height: 200, top: "91%", left: "17%", objectPosition: "100% 50%", link: "https://www.instagram.com/p/C8kcvyvS5de/?img_index=1" },
-    // { src: image15, width: 180, height: 280, top: "90%", left: "32%", objectPosition: "100% 50%", link: "https://www.instagram.com/p/C8kcvyvS5de/?img_index=1" },
-    // { src: image16, width: 180, height: 280, top: "90%", left: "49%", objectPosition: "100% 50%", link: "https://www.instagram.com/p/C8kcvyvS5de/?img_index=1" },
-    // { src: image17, width: 160, height: 160, top: "93%", left: "66.5%", objectPosition: "100% 50%", link: "https://www.instagram.com/p/C8kcvyvS5de/?img_index=1" },
-    // { src: image18, width: 300, height: 230, top: "120%", left: "20%", objectPosition: "100% 50%", link: "https://www.instagram.com/p/C8kcvyvS5de/?img_index=1" },
-    // { src: image19, width: 270, height: 220, top: "70%", left: "66%", objectPosition: "100% 50%", link: "https://www.instagram.com/p/C8kcvyvS5de/?img_index=1" },
     { src: image20, width: 140, height: 100, top: "71%", left: "68%", objectPosition: "100% 50%", link: "https://www.instagram.com/p/C8kcvyvS5de/?img_index=1" },
 
 
