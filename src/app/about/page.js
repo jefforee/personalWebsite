@@ -72,97 +72,103 @@ import ie from "../../../public/images/inventory/gamer/ie.png"
 import locket from "../../../public/images/inventory/gamer/locket.png"
 import potion from "../../../public/images/inventory/gamer/potion.png"
 
+const identityInfo = [
+    {
+        role: "Jeffrey",
+        description: "Sleeping",
+        image: profilePic,
+        yoe: "??",
+        page: "0",
+        items: [],
 
+    },
+    {
+        role: "Frogtographer",
+        description: "Film-Look",
+        image: photographer,
+        yoe: "3",
+        page: "1",
+        items: [
+            { item_image: lens, item_name: "Lens" },
+            { item_image: microSD, item_name: "MicroSD" },
+            { item_image: flash, item_name: "Flash" },
+            { item_image: digicam, item_name: "Sony DCR-SR42" },
+            { item_image: fujifilm, item_name: "FujiFilm XT5" },
+            { item_image: tripod, item_name: "Tripod" },
+            { item_image: cameraBag, item_name: "Camera Bag" },
+
+        ]
+    },
+    {
+        role: "Gym Frog",
+        description: "Eat. Sleep. Gym.",
+        image: gym,
+        yoe: "4",
+        page: "2",
+        items: [
+            { item_image: dumbbell, item_name: "Dumbbell" },
+            { item_image: chicken, item_name: "Chicken" },
+            { item_image: chickenLeg, item_name: "More Chicken" },
+            { item_image: eggs, item_name: "Eggs" },
+            { item_image: bananaGym, item_name: "Banana" },
+            { item_image: peanut_butter, item_name: "Peanut Butter" },
+
+            { item_image: milk, item_name: "Milk" },
+            { item_image: water, item_name: "Water" }
+        ],
+
+    },
+    {
+        role: "Froogdie",
+        description: "Chomp. Nom. Gulp.",
+        image: foodie,
+        yoe: "∞",
+        page: "3",
+        items: [
+            { item_image: cereal, item_name: "Cocoa Puffs" },
+            { item_image: jam, item_name: "Strawberry Jam" },
+            { item_image: bread, item_name: "Milk Bread" },
+            { item_image: strawberry, item_name: "Strawberry" },
+            { item_image: grapes, item_name: "Green Grapes" },
+            { item_image: patties, item_name: "Wagyu" },
+            { item_image: steak, item_name: "Ribeye Steak" },
+            { item_image: salmon, item_name: "Salmon" },
+            { item_image: chips, item_name: "S+V Chips" },
+            { item_image: soda, item_name: "Coca Cola" },
+
+        ],
+
+    },
+    {
+        role: "Gamerog",
+        description: "Hardstuck Diamond",
+        image: gamer,
+        yoe: "16",
+        page: "4",
+        items: [
+            { item_image: boots, item_name: "Boots" },
+            { item_image: potion, item_name: "Health Potion" },
+            { item_image: frozenHeart, item_name: "Frozen Heart" },
+            { item_image: ie, item_name: "Infinity Edge" },
+            { item_image: cap, item_name: "Deathcap" },
+            { item_image: locket, item_name: "Locket" },
+
+
+        ],
+
+    },
+]
+
+const dialogues = [
+    "Hello! 'My name is Jeff' and this is where I am most of the time... the internet. I am currently a software engineer at Amazon and I... code a lot.",
+    "I loveeee making mechanical keyboards! But it's too expensive...",
+    "I snap, I gym, I eat, I game. Quite the simple life. Choose a version of me below!",
+    "Did you notice all the yellow on the site? My last name 黄 (huang) means 'yellow' in Chinese!",
+    "I will be taking my leave now. Ribbit ribbit."
+
+];
 
 export default function About() {
-
-
-    const identityInfo = [
-        {
-            role: "Jeffrey",
-            description: "Sleeping",
-            image: profilePic,
-            yoe: "??",
-            page: "0",
-            items: [],
-
-        },
-        {
-            role: "Frogtographer",
-            description: "Film-Look",
-            image: photographer,
-            yoe: "3",
-            page: "1",
-            items: [
-                { item_image: lens, item_name: "Lens" },
-                { item_image: microSD, item_name: "MicroSD" },
-                { item_image: flash, item_name: "Flash" },
-                { item_image: digicam, item_name: "Sony DCR-SR42" },
-                { item_image: fujifilm, item_name: "FujiFilm XT5" },
-                { item_image: tripod, item_name: "Tripod" },
-                { item_image: cameraBag, item_name: "Camera Bag" },
-
-            ]
-        },
-        {
-            role: "Gym Frog",
-            description: "Eat. Sleep. Gym.",
-            image: gym,
-            yoe: "4",
-            page: "2",
-            items: [
-                { item_image: dumbbell, item_name: "Dumbbell" },
-                { item_image: chicken, item_name: "Chicken" },
-                { item_image: chickenLeg, item_name: "More Chicken" },
-                { item_image: eggs, item_name: "Eggs" },
-                { item_image: bananaGym, item_name: "Banana" },
-                { item_image: peanut_butter, item_name: "Peanut Butter" },
-
-                { item_image: milk, item_name: "Milk" },
-                { item_image: water, item_name: "Water" }
-            ],
-
-        },
-        {
-            role: "Froogdie",
-            description: "Chomp. Nom. Gulp.",
-            image: foodie,
-            yoe: "∞",
-            page: "3",
-            items: [
-                { item_image: cereal, item_name: "Cocoa Puffs" },
-                { item_image: jam, item_name: "Strawberry Jam" },
-                { item_image: bread, item_name: "Milk Bread" },
-                { item_image: strawberry, item_name: "Strawberry" },
-                { item_image: grapes, item_name: "Green Grapes" },
-                { item_image: patties, item_name: "Wagyu" },
-                { item_image: steak, item_name: "Ribeye Steak" },
-                { item_image: salmon, item_name: "Salmon" },
-                { item_image: chips, item_name: "S+V Chips" },
-                { item_image: soda, item_name: "Coca Cola" },
-
-            ],
-
-        },
-        {
-            role: "Gamerog",
-            description: "Hardstuck Diamond",
-            image: gamer,
-            yoe: "16",
-            page: "4",
-            items: [
-                { item_image: boots, item_name: "Boots" },
-                { item_image: potion, item_name: "Health Potion" },
-                { item_image: frozenHeart, item_name: "Frozen Heart" },
-                { item_image: ie, item_name: "Infinity Edge" },
-                { item_image: cap, item_name: "Deathcap" },
-                { item_image: locket, item_name: "Locket" },
-
-
-            ],
-
-        },
-    ]
 
     const [selectedIndex, setSelectedIndex] = useState(null);
     const [isHovered, setIsHovered] = useState(false);
@@ -170,17 +176,6 @@ export default function About() {
     const { setHasStarted } = useHasStarted();
     const [startTyping, setStartTyping] = useState(false); // State to control typing
     const [currentIndex, setCurrentIndex] = useState(0);
-
-
-    const dialogues = [
-        "Hello! 'My name is Jeff' and this is where I am most of the time... the internet. I am currently a software engineer at Amazon and I... code a lot.",
-        "I loveeee making mechanical keyboards! But it's too expensive...",
-        "I snap, I gym, I eat, I game. Quite the simple life. Choose a version of me below!",
-        "Did you notice all the yellow on the site? My last name 黄 (huang) means 'yellow' in Chinese!",
-        "I will be taking my leave now. Ribbit ribbit."
-
-    ];
-
 
     const handleNext = () => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % dialogues.length);

@@ -3,7 +3,6 @@
 import { useRouter } from 'next/navigation'
 import { useState } from 'react';
 import { TbFileCv, TbBrandLinkedin, TbBrandGithub } from 'react-icons/tb';
-import Typewriter from 'typewriter-effect';
 import { motion } from 'framer-motion';
 
 
@@ -25,7 +24,6 @@ export default function Navbar() {
             <div className="fadeIn pt-2 md:pt-4 flex flex-row justify-between items-start md:items-center px-[10%] lg:px-60">
                 {/* Leftside */}
                 <div className="font-pixelify font-light text-lg flex flex-row justify-start md:justify-center items-center gap-4">
-                    {/* <button type="button" onClick={() => router.push('/')} className="font-medium text-xl mr-8 pt-2 md:pt-0">Jeffrey Huang</button> */}
                     <a href="/" className="flip-animate mr-8" >
                         Jeffrey&nbsp;<span className="flip-text" data-hover="Huang">Huang</span>
                     </a>

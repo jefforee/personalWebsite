@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import pillar from '../../../public/images/play/pillar.png';
+import MasonryLayout from '../components/Masonry';
 
 export default function Play() {
     return (
@@ -23,6 +24,8 @@ export default function Play() {
                 />
 
             </div>
+
+            <MasonryLayout/>    
         </motion.div>
     );
 }
