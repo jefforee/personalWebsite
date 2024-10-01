@@ -91,8 +91,7 @@ export default function Home() {
     },
   ];
 
-  const [isMobile, setIsMobile] = useState(false); // Default to smallBorder
-  // const [hasStarted, setHasStarted] = useState(false); // Track if the button is pressed
+  const [isMobile, setIsMobile] = useState(false); 
   const [tiltDirection, setTiltDirection] = useState('');
   const [clickCount, setClickCount] = useState(0);
   const [shakeClass, setShakeClass] = useState('');
@@ -127,32 +126,36 @@ export default function Home() {
 
   const handleClick = (direction) => {
     if (tiltDirection) {
-      // If already tilted, set the fixed position
       setTiltDirection('');
     } else {
-      // If not tilted, set the direction
       setTiltDirection(direction);
     }
   };
 
 
   useEffect(() => {
-    // Hide everything
     setHasStarted(false);
 
-    // Function to update image source based on screen width
     const updateImageSrc = () => {
+      console.log(window.innerWidth )
       if (window.innerWidth > 768) {
+        console.log("Set false")
         setIsMobile(false);
       } else {
+        console.log("Set true")
+
         setIsMobile(true);
+        console.log(isMobile)
       }
+     
+
     };
 
     // Set initial image source
     updateImageSrc();
-
-    console.log(isMobile)
+    
+    // console.log(window.innerWidth)
+    // console.log(isMobile)
 
     // Add event listener for resize
     window.addEventListener('resize', updateImageSrc);
@@ -270,7 +273,7 @@ export default function Home() {
 
       </div>
       {/* Projects */}
-      <div id="project-start"></div>
+      <div id="project-start"/>
 
       {hasStarted && (
         <motion.div
@@ -324,7 +327,7 @@ export default function Home() {
                 {/* Project Image */}
                 {isMobile ?
                   (<Image
-                    src={index === 0 ? bigBorder : smallBorder}
+                    src={smallBorder}
                     alt={project.title}
                     width={500}
                     height={200}

@@ -177,6 +177,7 @@ export default function About() {
     const [startTyping, setStartTyping] = useState(false); // State to control typing
     const [currentIndex, setCurrentIndex] = useState(0);
 
+
     const handleNext = () => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % dialogues.length);
     };
@@ -275,7 +276,7 @@ export default function About() {
 
             {/* Dialogue */}
             <FadeInOnScroll
-                classes='relative flex justify-center mt-20'
+                classes='relative flex justify-center mt-6 md:mt-20'
                 setStartTyping={setStartTyping}
             >
                 <Image
@@ -464,7 +465,7 @@ export default function About() {
                             </div>
 
                             {/* Label */}
-                            <span className='font-semibold text-[6px] sm:text-[1.75vw] pl-1 sm:pl-2 xl:pl-4 overflow-hidden'>Inventory</span>
+                            <span className='font-semibold text-[6px] sm:text-[1.10vw] xl:text-[1.75vw] pl-1 sm:pl-2 xl:pl-4 overflow-hidden'>Inventory</span>
                         </div>
                     </div>
 
@@ -510,7 +511,7 @@ export default function About() {
                             />
 
                             {/* Label */}
-                            <span className=' font-semibold text-[1.75vw] pl-1 sm:pl-2'>
+                            <span className=' font-semibold text-[1.5vw] xl:text-[1.75vw] pl-1 sm:pl-2'>
                                 {selectedRole ? selectedRole.yoe : identityInfo[0].yoe} Years
                             </span>
                         </div>
