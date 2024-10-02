@@ -160,15 +160,10 @@ export default function Home() {
     setHasStarted(false);
 
     const updateImageSrc = () => {
-      console.log(window.innerWidth )
       if (window.innerWidth > 768) {
-        console.log("Set false")
         setIsMobile(false);
       } else {
-        console.log("Set true")
-
         setIsMobile(true);
-        console.log(isMobile)
       }
      
 
