@@ -11,7 +11,7 @@ export default function RootLayout({ children }) {
     <HasStartedProvider>
       <html lang="en" className="scroll-smooth">
         <Head>
-          <link rel="icon" href="./favicon.ico" sizes="any" />
+          <link rel="icon" href="./icon.ico" sizes="any" />
         </Head>
 
         <body className="bg-[#E0E0DB]">
