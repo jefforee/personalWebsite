@@ -4,17 +4,16 @@ import { HasStartedProvider, useHasStarted } from "./contexts/HasStartedContext"
 import NavBar from "./components/Navbar";
 import Footer from "./components/Footer";
 import "./styles/globals.css";
-import Head from 'next/head';
 
 export default function RootLayout({ children }) {
   return (
     <HasStartedProvider>
       <html lang="en" className="scroll-smooth">
-        <Head>
+        <head>
           <title>Jeffrey Huang</title> 
 
           <link rel="icon" href="./icon.ico" sizes="any" />
-        </Head>
+        </head>
 
         <body className="bg-[#E0E0DB]">
           <NavBar />
