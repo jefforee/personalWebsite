@@ -91,7 +91,7 @@ export default function Home() {
     },
   ];
 
-  const [isMobile, setIsMobile] = useState(false); 
+  const [isMobile, setIsMobile] = useState(false);
   const [tiltDirection, setTiltDirection] = useState('');
   const [clickCount, setClickCount] = useState(0);
   const [shakeClass, setShakeClass] = useState('');
@@ -103,25 +103,29 @@ export default function Home() {
   const [loadIframe, setLoadIframe] = useState(false);
 
   useEffect(() => {
-      const observer = new IntersectionObserver(
-          ([entry]) => {
-              if (entry.isIntersecting) {
-                  setLoadIframe(true);
-                  observer.disconnect(); 
-              }
-          },
-          { threshold: 0.1 } 
-      );
+    console.log("Hello (from the console)! This is where I hide my snacks...")
+  }, [])
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setLoadIframe(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (iframeRef.current) {
+      observer.observe(iframeRef.current);
+    }
+
+    return () => {
       if (iframeRef.current) {
-          observer.observe(iframeRef.current);
+        observer.unobserve(iframeRef.current);
       }
-
-      return () => {
-          if (iframeRef.current) {
-              observer.unobserve(iframeRef.current);
-          }
-      };
+    };
   }, []);
 
   useEffect(() => {
@@ -134,7 +138,7 @@ export default function Home() {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); 
+    handleScroll();
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -165,7 +169,7 @@ export default function Home() {
       } else {
         setIsMobile(true);
       }
-     
+
 
     };
 
@@ -233,23 +237,23 @@ export default function Home() {
             :
             (
               <div className="iframe-container" ref={iframeRef}>
-            {loadIframe ? (
-                <iframe
+                {loadIframe ? (
+                  <iframe
                     src="https://jefforee.github.io/dinosaur-game/"
                     style={{ width: '100%', height: '100%', border: 'none' }}
                     title="Embedded HTML"
                     scrolling='no'
                     className='cursor-crosshair'
-                />
-            ) : (
-                <div className="overlay">
+                  />
+                ) : (
+                  <div className="overlay">
                     <p>Loading game...</p>
+                  </div>
+                )}
+                <div className="overlay mt-1">
+                  <p>Press Spacebar to Start</p>
                 </div>
-            )}
-            <div className="overlay mt-1">
-                <p>Press Spacebar to Start</p>
-            </div>
-        </div>
+              </div>
 
             )
           }
@@ -281,7 +285,7 @@ export default function Home() {
 
       </div>
       {/* Projects */}
-      <div id="project-start"/>
+      <div id="project-start" />
 
       {hasStarted && (
         <motion.div
@@ -339,14 +343,14 @@ export default function Home() {
                     alt={project.title}
                     width={500}
                     height={200}
-                    style={{ width: '100%', height: 'auto', imageRendering: 'pixelated' }} 
+                    style={{ width: '100%', height: 'auto', imageRendering: 'pixelated' }}
                     unoptimized
                   />)
                   :
                   (<Image
                     src={index === 0 ? bigBorder : smallBorder}
                     alt={project.title}
-                    style={{ width: '100%', height: 'auto', imageRendering: 'pixelated' }} 
+                    style={{ width: '100%', height: 'auto', imageRendering: 'pixelated' }}
                     width={500}
                     height={200}
                     unoptimized
@@ -423,7 +427,7 @@ export default function Home() {
             {(clickCount >= 5) && (
               <div className="absolute top-[-170%] left-1/2 transform -translate-x-1/2 crawling-image">
                 <Image
-                  src={pikmin} 
+                  src={pikmin}
                   alt="pikmin"
                   style={{ imageRendering: 'pixelated' }}
                   unoptimized
@@ -439,42 +443,42 @@ export default function Home() {
             <div className={`flex flex-col text-gray-700 ${isMobile ? "justify-center items-center" : ""}`}>
               {experienceInfo.map((experience, index) => (
                 <a href={experience.link} target="_blank" rel="noopener noreferrer" key={index} className={`relative ${isMobile ? "h-[4vw] w-[70vw]" : "h-[4vw]"} group hover:text-black mb-4 cursor-pointer`}>
+                  <Image
+                    src={experienceGray}
+                    style={{ width: '100%', height: 'auto', imageRendering: 'pixelated' }}
+                    className="absolute transition-opacity duration-500 ease-in-out"
+                    unoptimized
+                  />
+                  <Image
+                    src={experienceYellow}
+                    style={{ width: '100%', height: 'auto', imageRendering: 'pixelated' }}
+                    className="absolute transition-opacity duration-500 ease-in-out opacity-0 group-hover:opacity-100"
+                    unoptimized
+                  />
+
+                  <div className={`absolute inset-0 flex flex-row items-center space-x-1 sm:space-x-3 z-10 ${isMobile ? "top-[50%]" : "top-[45%]"} left-3 transform -translate-y-[30%] sm:-translate-y-1/2`}>
                     <Image
-                      src={experienceGray}
-                      style={{ width: '100%', height: 'auto', imageRendering: 'pixelated' }}
-                      className="absolute transition-opacity duration-500 ease-in-out"
-                      unoptimized
-                    />
-                    <Image
-                      src={experienceYellow}
-                      style={{ width: '100%', height: 'auto', imageRendering: 'pixelated' }} 
-                      className="absolute transition-opacity duration-500 ease-in-out opacity-0 group-hover:opacity-100"
+                      src={experience.icon}
+                      alt={`Icon ${index}`}
+                      style={{ imageRendering: 'pixelated' }}
+                      className={`aspect-square z-10 ${(experience.company == "IBM" && !isMobile) ? "mb-[8px] w-[4.25vw] h-[4.5vw]" : "w-[4vw] h-[4vw]"} ${isMobile ? "mb-0" : "mb-6"}`}
+                      width={50}
+                      height={50}
                       unoptimized
                     />
 
-                    <div className={`absolute inset-0 flex flex-row items-center space-x-1 sm:space-x-3 z-10 ${isMobile ? "top-[50%]" : "top-[45%]"} left-3 transform -translate-y-[30%] sm:-translate-y-1/2`}>
-                      <Image
-                        src={experience.icon}
-                        alt={`Icon ${index}`}
-                        style={{ imageRendering: 'pixelated' }}
-                        className={`aspect-square z-10 ${(experience.company == "IBM" && !isMobile) ? "mb-[8px] w-[4.25vw] h-[4.5vw]" : "w-[4vw] h-[4vw]"} ${isMobile ? "mb-0" : "mb-6"}`}
-                        width={50}
-                        height={50}
-                        unoptimized
-                      />
-
-                      <div className={`flex flex-row w-full items-center justify-between font-light ${isMobile ? "text-[7px]" : "text-[1.15vw]"}`}>
-                        <div>
-                          <span className="font-semibold">{experience.company}</span>
-                          &nbsp;
-                          <span className="">{experience.role}</span>
-                        </div>
-                        <div>
-                          <span className="font-pixelify justify-end mr-1 sm:mr-4">{experience.time}</span>
-                        </div>
+                    <div className={`flex flex-row w-full items-center justify-between font-light ${isMobile ? "text-[7px]" : "text-[1.15vw]"}`}>
+                      <div>
+                        <span className="font-semibold">{experience.company}</span>
+                        &nbsp;
+                        <span className="">{experience.role}</span>
                       </div>
-
+                      <div>
+                        <span className="font-pixelify justify-end mr-1 sm:mr-4">{experience.time}</span>
+                      </div>
                     </div>
+
+                  </div>
                 </a>
               ))}
 
