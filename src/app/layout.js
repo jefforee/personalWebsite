@@ -11,6 +11,8 @@ export default function RootLayout({ children }) {
     <HasStartedProvider>
       <html lang="en" className="scroll-smooth">
         <Head>
+          <title>Jeffrey Huang</title> 
+
           <link rel="icon" href="./icon.ico" sizes="any" />
         </Head>
 
