@@ -24,7 +24,7 @@ export default function Navbar() {
             <div className="fadeIn pt-2 md:pt-4 flex flex-row justify-between items-start md:items-center px-[10%] lg:px-60">
                 {/* Leftside */}
                 <div className="font-pixelify font-light text-lg flex flex-row justify-start md:justify-center items-center gap-4">
-                    <a href="/" className="flip-animate mr-8" >
+                    <a href="/" className="flip-animate mr-8 mt-2 md:mt-0" >
                         Jeffrey&nbsp;<span className="flip-text" data-hover="Huang">Huang</span>
                     </a>
 

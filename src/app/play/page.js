@@ -22,7 +22,8 @@ export default function Play() {
                     className='absolute -top-5 sm:top-0 -left-[65px] sm:-left-[100px] lg:-left-60 w-[80%] sm:w-[45vw]'
                     style={{ imageRendering: 'pixelated' }}
                     alt="Pillar"
-                    unoptimized
+                    unoptimized 
+                    priority
                 />
             </div>
 

@@ -3,18 +3,18 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
-import image1 from "../../../public/images/play/photos/image1.JPG";
-import image2 from "../../../public/images/play/photos/image2.JPG";
-import image3 from "../../../public/images/play/photos/image3.JPG";
-import image4 from "../../../public/images/play/photos/image4.JPG";
-import image5 from "../../../public/images/play/photos/image5.JPG";
-import image6 from "../../../public/images/play/photos/image6.JPG";
-import image7 from "../../../public/images/play/photos/image7.JPG";
-import image8 from "../../../public/images/play/photos/image8.JPG";
-import image9 from "../../../public/images/play/photos/image9.JPG";
-import image10 from "../../../public/images/play/photos/image10.JPG";
-import image11 from "../../../public/images/play/photos/image11.JPG";
-import image20 from "../../../public/images/play/photos/image20.JPG";
+import image1 from "../../../public/images/play/photos/image1.png";
+import image2 from "../../../public/images/play/photos/image2.png";
+import image3 from "../../../public/images/play/photos/image3.png";
+import image4 from "../../../public/images/play/photos/image4.png";
+import image5 from "../../../public/images/play/photos/image5.png";
+import image6 from "../../../public/images/play/photos/image6.png";
+import image7 from "../../../public/images/play/photos/image7.png";
+import image8 from "../../../public/images/play/photos/image8.png";
+import image9 from "../../../public/images/play/photos/image9.png";
+import image10 from "../../../public/images/play/photos/image10.png";
+import image11 from "../../../public/images/play/photos/image11.png";
+import image12 from "../../../public/images/play/photos/image12.png";
 
 // List of images with links
 const photos = [
@@ -29,7 +29,7 @@ const photos = [
     { src: image9, width: 140, height: 180, top: "53%", left: "78.5%", objectPosition: "100% 50%", link: "https://www.instagram.com/p/C8XiXffSLbh/?img_index=1" },
     { src: image10, width: 250, height: 300, top: "60%", left: "24%", objectPosition: "100% 50%", link: "https://www.instagram.com/p/C8sKeXqy4ns/?img_index=1" },
     { src: image11, width: 240, height: 160, top: "70%", left: "47%", objectPosition: "100% 50%", link: "https://www.instagram.com/p/C8kcvyvS5de/?img_index=1" },
-    { src: image20, width: 140, height: 100, top: "71%", left: "68%", objectPosition: "100% 50%", link: "https://www.instagram.com/p/C8kcvyvS5de/?img_index=1" },
+    { src: image12, width: 140, height: 100, top: "71%", left: "68%", objectPosition: "100% 50%", link: "https://www.instagram.com/p/Csu39hjubv7/?img_index=1" },
 ];
 
 export default function PhotoGallery() {
@@ -121,9 +121,11 @@ export default function PhotoGallery() {
                                     style={{
                                         objectFit: "cover",
                                         objectPosition: photo.objectPosition,
-                                        transition: "transform 0.2s ease", // Shortened transition duration with 'ease'
+                                        transition: "transform 0.2s ease", 
                                     }}
-                                    className="hover:scale-105" // Scale image slightly on hover
+                                    className="hover:scale-110" 
+                                    unoptimized
+
                                 />
                             </a>
                         </div>
