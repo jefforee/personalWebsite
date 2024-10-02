@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useHasStarted } from '../contexts/HasStartedContext';
 import Image from 'next/image';
 import Typewriter from 'typewriter-effect';

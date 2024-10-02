@@ -4,10 +4,23 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import pillar from '../../../public/images/play/pillar.png';
+import { useHasStarted } from '../contexts/HasStartedContext';
+import { useEffect } from 'react';
+
 
 const PhotoGallery = dynamic(() => import('../components/PhotoGallery'), { ssr: false });
 
 export default function Play() {
+    const { setHasStarted } = useHasStarted();
+
+    useEffect(() => {
+        setHasStarted(true);
+
+        return () => {
+            setHasStarted(false);
+        };
+    }, [setHasStarted]);
+
     return (
         <motion.div
             initial={{ opacity: 0, y: 50 }}
