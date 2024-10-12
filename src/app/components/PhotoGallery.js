@@ -35,16 +35,19 @@ const photos = [
 export default function PhotoGallery() {
     const [isMobile, setIsMobile] = useState(false);
     const [photoDimensions, setPhotoDimensions] = useState([]);
+    const [is3xl, setIs3xl] = useState(false);
+
 
     useEffect(() => {
-        const updateIsMobile = () => {
+        const updateDimensions = () => {
             setIsMobile(window.innerWidth <= 1024);
+            setIs3xl(window.innerWidth >= 1800); // Check for 3xl screen size
         };
 
-        updateIsMobile();
-        window.addEventListener("resize", updateIsMobile);
+        updateDimensions();
+        window.addEventListener("resize", updateDimensions);
 
-        return () => window.removeEventListener("resize", updateIsMobile);
+        return () => window.removeEventListener("resize", updateDimensions);
     }, []);
 
     useEffect(() => {
@@ -106,8 +109,8 @@ export default function PhotoGallery() {
                             style={{
                                 top: photo.top,
                                 left: photo.left,
-                                width: `${photo.width}px`,
-                                height: `${photo.height}px`,
+                                width: is3xl ? `${photo.width * 1.65}px` : `${photo.width}px`, // Multiply by 3 for 3xl
+                                height: is3xl ? `${photo.height * 1.5}px` : `${photo.height}px`, // Multiply by 3 for 3xl
                                 boxShadow: "5px 5px 15px rgba(0, 0, 0, 0.5)",
                                 border: "solid 4px #501B04",
                                 overflow: "hidden",
@@ -121,11 +124,10 @@ export default function PhotoGallery() {
                                     style={{
                                         objectFit: "cover",
                                         objectPosition: photo.objectPosition,
-                                        transition: "transform 0.2s ease", 
+                                        transition: "transform 0.2s ease",
                                     }}
-                                    className="hover:scale-110" 
+                                    className="hover:scale-110"
                                     unoptimized
-
                                 />
                             </a>
                         </div>

@@ -324,6 +324,7 @@ export default function Home() {
                 <span className="text-banana-yellow">&gt;</span>
               </span>
             </div>
+
           </div>
 
           {/* Project Grid */}

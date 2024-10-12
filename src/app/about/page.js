@@ -385,14 +385,14 @@ export default function About() {
                                     <Image
                                         src={bottomLeftSelect}
                                         alt="Bottom Left"
-                                        className={`absolute bottom-[10px] left-[-6px] sm:bottom-[32px] sm:left-[-12px] w-3 h-3 sm:w-6 sm:h-6 animate-out-in-bottom-left ${selectedIndex === index ? '' : 'filter grayscale'}`}
+                                        className={`absolute bottom-[10px] left-[-6px] sm:bottom-[12%] sm:left-[-12px] w-3 h-3 sm:w-6 sm:h-6 animate-out-in-bottom-left ${selectedIndex === index ? '' : 'filter grayscale'}`}
                                         style={{ imageRendering: 'pixelated' }}
                                         unoptimized
                                     />
                                     <Image
                                         src={bottomRightSelect}
                                         alt="Bottom Right"
-                                        className={`absolute bottom-[10px] right-[-6px] sm:bottom-[32px] sm:right-[-12px] w-3 h-3 sm:w-6 sm:h-6 animate-out-in-bottom-right ${selectedIndex === index ? '' : 'filter grayscale'}`}
+                                        className={`absolute bottom-[10px] right-[-6px] sm:bottom-[12%] sm:right-[-12px] w-3 h-3 sm:w-6 sm:h-6 animate-out-in-bottom-right ${selectedIndex === index ? '' : 'filter grayscale'}`}
                                         style={{ imageRendering: 'pixelated' }}
                                         unoptimized
                                     />
@@ -420,14 +420,14 @@ export default function About() {
                                     <Image
                                         src={bottomLeftSelect} 
                                         alt="Bottom Left"
-                                        className={`absolute bottom-[10px] left-[-6px] sm:bottom-[32px] sm:left-[-12px] w-3 h-3 sm:w-6 sm:h-6`}
+                                        className={`absolute bottom-[10px] left-[-6px] sm:bottom-[12%] sm:left-[-12px] w-3 h-3 sm:w-6 sm:h-6`}
                                         style={{ imageRendering: 'pixelated' }}
                                         unoptimized
                                     />
                                     <Image
                                         src={bottomRightSelect} 
                                         alt="Bottom Right"
-                                        className={`absolute bottom-[10px] right-[-6px] sm:bottom-[32px] sm:right-[-12px] w-3 h-3 sm:w-6 sm:h-6`}
+                                        className={`absolute bottom-[10px] right-[-6px] sm:bottom-[12%] sm:right-[-12px] w-3 h-3 sm:w-6 sm:h-6`}
                                         style={{ imageRendering: 'pixelated' }}
                                         unoptimized
                                     />
